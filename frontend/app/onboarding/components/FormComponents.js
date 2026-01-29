@@ -15,7 +15,7 @@ export function FormSelect({ label, value, onChange, options, placeholder, requi
       <select
         value={value}
         onChange={onChange}
-        className="w-full rounded-lg border-2 border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 transition focus:border-purple-600 focus:outline-none focus:bg-white dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+        className="w-full rounded-lg border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 shadow-sm transition-all duration-200 focus:border-purple-500 focus:shadow-md focus:ring-2 focus:ring-purple-500/20 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-purple-500"
       >
         <option value="">{placeholder}</option>
         {options.map((option) => {
@@ -29,7 +29,7 @@ export function FormSelect({ label, value, onChange, options, placeholder, requi
         })}
       </select>
       {helperText && (
-        <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">{helperText}</p>
+        <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400">{helperText}</p>
       )}
     </div>
   );
@@ -44,10 +44,10 @@ export function FormInput({ label, value, onChange, placeholder, required = fals
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full rounded-lg border-2 border-zinc-200 bg-zinc-50 px-4 py-3 text-zinc-900 transition focus:border-purple-600 focus:outline-none focus:bg-white dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+        className="w-full rounded-lg border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 shadow-sm transition-all duration-200 placeholder:text-zinc-400 focus:border-purple-500 focus:shadow-md focus:ring-2 focus:ring-purple-500/20 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-purple-500"
       />
       {helperText && (
-        <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">{helperText}</p>
+        <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400">{helperText}</p>
       )}
     </div>
   );

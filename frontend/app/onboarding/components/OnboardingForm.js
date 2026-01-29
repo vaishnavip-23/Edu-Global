@@ -331,7 +331,7 @@ export function OnboardingForm() {
         {currentStep > 1 && (
           <button
             onClick={handleBack}
-            className="flex-1 rounded-lg border-2 border-zinc-200 px-6 py-3 font-semibold text-zinc-900 transition hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-900"
+            className="flex-1 rounded-lg border-2 border-zinc-200 px-6 py-3 font-semibold text-zinc-900 shadow-sm transition-all duration-200 hover:bg-zinc-50 hover:border-zinc-300 hover:shadow-md active:scale-[0.98] dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
           >
             ← Back
           </button>
@@ -341,9 +341,16 @@ export function OnboardingForm() {
           <button
             onClick={handleNext}
             disabled={loading}
-            className="flex-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition hover:shadow-lg disabled:opacity-50"
+            className="flex-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
-            {loading ? "Saving..." : "Next Step →"}
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></span>
+                Saving...
+              </span>
+            ) : (
+              "Next Step →"
+            )}
           </button>
         )}
 
@@ -351,9 +358,16 @@ export function OnboardingForm() {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="flex-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white transition hover:shadow-lg disabled:opacity-50"
+            className="flex-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
-            {loading ? "Completing..." : "Complete Onboarding & Access Dashboard"}
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></span>
+                Completing...
+              </span>
+            ) : (
+              "Complete Onboarding & Access Dashboard"
+            )}
           </button>
         )}
       </div>

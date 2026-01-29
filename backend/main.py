@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.config import FRONTEND_URL
 from backend.routes import onboarding
+from backend.routes import universities
+from backend.routes import ai_counsellor
+from backend.routes import todos
 from backend.database import Base, engine
 
 # Create database tables
@@ -24,6 +27,9 @@ app.add_middleware(
 
 # Routes
 app.include_router(onboarding.router)
+app.include_router(universities.router)
+app.include_router(ai_counsellor.router)
+app.include_router(todos.router)
 
 
 @app.get("/health")

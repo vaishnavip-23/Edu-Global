@@ -18,6 +18,7 @@ dependencies = [
   "pyjwt==2.8.0",
   "cryptography==41.0.7",
   "requests==2.31.0",
+  "google-genai>=0.2.0",
 ]
 
 [tool.setuptools]
@@ -26,3 +27,8 @@ include-package-data = true
 
 [tool.setuptools.package-data]
 backend = ["**/*.py"]
+
+[tool.uv.workspace]
+members = [
+    "frontend",
+]
