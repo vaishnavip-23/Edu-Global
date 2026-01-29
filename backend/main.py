@@ -5,6 +5,7 @@ from backend.routes import onboarding
 from backend.routes import universities
 from backend.routes import ai_counsellor
 from backend.routes import todos
+from backend.routes import users
 from backend.database import Base, engine
 
 # Create database tables
@@ -30,6 +31,7 @@ app.include_router(onboarding.router)
 app.include_router(universities.router)
 app.include_router(ai_counsellor.router)
 app.include_router(todos.router)
+app.include_router(users.router)
 
 
 @app.get("/health")

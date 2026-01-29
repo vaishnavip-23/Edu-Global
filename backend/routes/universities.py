@@ -195,6 +195,12 @@ async def add_to_shortlist(
                 "shortlist_id": existing.id
             }
 
+        # Stage progression: first shortlist moves from stage 2 to 3 (Finalizing Universities)
+        shortlist_count = db.query(Shortlist).filter(Shortlist.user_id == user.id).count()
+        if shortlist_count == 0 and user.current_stage == 2:
+            user.current_stage = 3
+            db.add(user)
+
         # Add to shortlist
         shortlist = Shortlist(
             user_id=user.id,
@@ -347,6 +353,10 @@ async def lock_university(
 
         # Lock it
         shortlist.locked = True
+        # Stage progression: first lock moves to stage 4 (Preparing Applications)
+        if user.current_stage < 4:
+            user.current_stage = 4
+            db.add(user)
         db.commit()
 
         logger.info(f"User {user.id} locked university {university_id}")

@@ -30,10 +30,11 @@ class TodoUpdate(BaseModel):
 @router.get("/")
 async def get_todos(
     status: Optional[str] = None,
+    university_id: Optional[str] = None,
     db: Session = Depends(get_db),
     current_user: dict = Depends(get_current_user),
 ):
-    """Get user's to-do list"""
+    """Get user's to-do list, optionally filtered by university_id (for Application Preparation)."""
     try:
         clerk_user_id = current_user["clerk_user_id"]
 
@@ -45,6 +46,8 @@ async def get_todos(
 
         if status:
             query = query.filter(Todo.status == status)
+        if university_id:
+            query = query.filter(Todo.university_id == university_id)
 
         todos = query.order_by(Todo.created_at.desc()).all()
 

@@ -13,6 +13,7 @@ export default function CounsellorPage() {
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const [onboardingChecked, setOnboardingChecked] = useState(false);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -21,16 +22,38 @@ export default function CounsellorPage() {
       return;
     }
 
+    if (isLoaded && isSignedIn && user?.id) {
+      fetch(
+        `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/onboarding/status/${user.id}`,
+        { headers: { "Content-Type": "application/json" } },
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (!data.onboarding_complete) {
+            router.push("/onboarding");
+            return;
+          }
+          setOnboardingChecked(true);
+        })
+        .catch(() => setOnboardingChecked(true));
+    }
+  }, [isLoaded, isSignedIn, user?.id, router]);
+
+  useEffect(() => {
+    if (isLoaded && !isSignedIn) return;
+    if (!onboardingChecked && isSignedIn) return;
+
     // Add welcome message
-    if (isLoaded && isSignedIn && messages.length === 0) {
+    if (isLoaded && isSignedIn && onboardingChecked && messages.length === 0) {
       setMessages([
         {
           role: "assistant",
-          content: "👋 Hi! I'm your AI Counsellor. I'm here to guide you through your study-abroad journey step by step.\n\nI can help you:\n• Understand your profile strengths and gaps\n• Recommend universities that fit your goals\n• Shortlist and lock universities\n• Create actionable to-do tasks\n• Guide you through each stage\n\nWhat would you like to know or do today?",
+          content:
+            "👋 Hi! I'm your AI Counsellor. I'm here to guide you through your study-abroad journey step by step.\n\nI can help you:\n• Understand your profile strengths and gaps\n• Recommend universities that fit your goals\n• Shortlist and lock universities\n• Create actionable to-do tasks\n• Guide you through each stage\n\nWhat would you like to know or do today?",
         },
       ]);
     }
-  }, [isLoaded, isSignedIn, router, messages.length]);
+  }, [isLoaded, isSignedIn, onboardingChecked, router, messages.length]);
 
   useEffect(() => {
     // Scroll to bottom when messages change
@@ -118,7 +141,7 @@ export default function CounsellorPage() {
     }
   };
 
-  if (!isLoaded) {
+  if (!isLoaded || (isSignedIn && !onboardingChecked)) {
     return (
       <main className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-black dark:to-zinc-900">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
@@ -240,7 +263,8 @@ export default function CounsellorPage() {
             </button>
           </div>
           <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
-            💡 Try: "Recommend universities for me" or "What's my profile strength?"
+            💡 Try: "Recommend universities for me" or "What's my profile
+            strength?"
           </p>
         </div>
       </div>

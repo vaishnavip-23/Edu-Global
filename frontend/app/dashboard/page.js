@@ -14,6 +14,7 @@ export default function DashboardPage() {
   const [profileStrength, setProfileStrength] = useState(null);
   const [todos, setTodos] = useState([]);
   const [userStage, setUserStage] = useState(1);
+  const [lockedCount, setLockedCount] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const fetchDashboardData = useCallback(async () => {
@@ -29,7 +30,7 @@ export default function DashboardPage() {
           headers: {
             "Content-Type": "application/json",
           },
-        }
+        },
       );
 
       if (statusResponse.ok) {
@@ -41,15 +42,24 @@ export default function DashboardPage() {
         }
       }
 
+      // Fetch current user (includes current_stage)
+      const meResponse = await fetch(`${apiUrl}/api/users/me`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (meResponse.ok) {
+        const meData = await meResponse.json();
+        setUserStage(meData.user?.current_stage ?? 1);
+      }
+
       // Fetch onboarding data
-      const dataResponse = await fetch(
-        `${apiUrl}/api/onboarding/${user.id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const dataResponse = await fetch(`${apiUrl}/api/onboarding/${user.id}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (dataResponse.ok) {
         const data = await dataResponse.json();
@@ -64,7 +74,7 @@ export default function DashboardPage() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (strengthResponse.ok) {
@@ -83,6 +93,22 @@ export default function DashboardPage() {
       if (todosResponse.ok) {
         const todosData = await todosResponse.json();
         setTodos(todosData.todos);
+      }
+
+      // Fetch shortlist to get locked count (for gating Application Preparation)
+      const shortlistResponse = await fetch(
+        `${apiUrl}/api/universities/shortlist/my-shortlist`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      if (shortlistResponse.ok) {
+        const shortlistData = await shortlistResponse.json();
+        const list = shortlistData.shortlist || [];
+        setLockedCount(list.filter((u) => u.is_locked).length);
       }
     } catch (error) {
       console.error("Error fetching dashboard data:", error);
@@ -108,8 +134,8 @@ export default function DashboardPage() {
     // Optimistic update - update UI immediately
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
-        todo.id === todoId ? { ...todo, status: newStatus } : todo
-      )
+        todo.id === todoId ? { ...todo, status: newStatus } : todo,
+      ),
     );
 
     try {
@@ -129,8 +155,8 @@ export default function DashboardPage() {
         // Revert on failure
         setTodos((prevTodos) =>
           prevTodos.map((todo) =>
-            todo.id === todoId ? { ...todo, status: currentStatus } : todo
-          )
+            todo.id === todoId ? { ...todo, status: currentStatus } : todo,
+          ),
         );
       }
     } catch (error) {
@@ -138,26 +164,50 @@ export default function DashboardPage() {
       // Revert on error
       setTodos((prevTodos) =>
         prevTodos.map((todo) =>
-          todo.id === todoId ? { ...todo, status: currentStatus } : todo
-        )
+          todo.id === todoId ? { ...todo, status: currentStatus } : todo,
+        ),
       );
     }
   };
 
   const getStageInfo = (stage) => {
     const stages = {
-      1: { name: "Building Profile", color: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300" },
-      2: { name: "Discovering Universities", color: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300" },
-      3: { name: "Finalizing Universities", color: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300" },
-      4: { name: "Preparing Applications", color: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300" },
+      1: {
+        name: "Building Profile",
+        color:
+          "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+      },
+      2: {
+        name: "Discovering Universities",
+        color:
+          "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300",
+      },
+      3: {
+        name: "Finalizing Universities",
+        color:
+          "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300",
+      },
+      4: {
+        name: "Preparing Applications",
+        color:
+          "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+      },
     };
     return stages[stage] || stages[1];
   };
 
   const getStrengthColor = (strength) => {
-    if (strength === "Strong" || strength === "Completed" || strength === "Ready") {
+    if (
+      strength === "Strong" ||
+      strength === "Completed" ||
+      strength === "Ready"
+    ) {
       return "text-green-600 dark:text-green-400";
-    } else if (strength === "Average" || strength === "In Progress" || strength === "Draft") {
+    } else if (
+      strength === "Average" ||
+      strength === "In Progress" ||
+      strength === "Draft"
+    ) {
       return "text-yellow-600 dark:text-yellow-400";
     } else {
       return "text-red-600 dark:text-red-400";
@@ -170,7 +220,9 @@ export default function DashboardPage() {
         <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent"></div>
-            <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">Loading...</p>
+            <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+              Loading...
+            </p>
           </div>
         </div>
       </main>
@@ -211,8 +263,12 @@ export default function DashboardPage() {
             Welcome back, {user?.firstName || "there"}!
           </h1>
           <div className="mt-3 flex items-center gap-3">
-            <span className="text-zinc-600 dark:text-zinc-400">Current Stage:</span>
-            <span className={`rounded-full px-3 py-1 text-sm font-medium ${stageInfo.color}`}>
+            <span className="text-zinc-600 dark:text-zinc-400">
+              Current Stage:
+            </span>
+            <span
+              className={`rounded-full px-3 py-1 text-sm font-medium ${stageInfo.color}`}
+            >
               Stage {userStage}: {stageInfo.name}
             </span>
           </div>
@@ -224,72 +280,106 @@ export default function DashboardPage() {
           <div className="space-y-6 lg:col-span-2">
             {/* Profile Summary */}
             <div className="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
-              <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                Your Profile
-              </h2>
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                  Your Profile
+                </h2>
+                <button
+                  onClick={() => router.push("/profile")}
+                  className="text-sm font-medium text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
+                >
+                  Edit profile
+                </button>
+              </div>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">Education:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Education:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.education_level}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">Major:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Major:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.degree_major}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">GPA:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    GPA:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.gpa || "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">Target Degree:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Target Degree:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.target_degree || "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">Field:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Field:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.field_of_study || "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">Countries:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Countries:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.preferred_countries || "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">Budget:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Budget:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.budget_range || "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">Funding:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Funding:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.funding_plan || "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">IELTS/TOEFL:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    IELTS/TOEFL:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
-                    {onboardingData.ielts_status || onboardingData.toefl_status || "N/A"}
+                    {onboardingData.ielts_status ||
+                      onboardingData.toefl_status ||
+                      "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">GRE/GMAT:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    GRE/GMAT:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
-                    {onboardingData.gre_status || onboardingData.gmat_status || "N/A"}
+                    {onboardingData.gre_status ||
+                      onboardingData.gmat_status ||
+                      "N/A"}
                   </p>
                 </div>
                 <div>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">SOP Status:</span>
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    SOP Status:
+                  </span>
                   <p className="text-sm font-medium text-zinc-900 dark:text-zinc-50">
                     {onboardingData.sop_status || "N/A"}
                   </p>
@@ -308,20 +398,32 @@ export default function DashboardPage() {
                 </p>
                 <div className="mt-4 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400">Academics:</span>
-                    <span className={`font-semibold ${getStrengthColor(profileStrength.academics)}`}>
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                      Academics:
+                    </span>
+                    <span
+                      className={`font-semibold ${getStrengthColor(profileStrength.academics)}`}
+                    >
                       {profileStrength.academics}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400">Exams:</span>
-                    <span className={`font-semibold ${getStrengthColor(profileStrength.exams)}`}>
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                      Exams:
+                    </span>
+                    <span
+                      className={`font-semibold ${getStrengthColor(profileStrength.exams)}`}
+                    >
                       {profileStrength.exams}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400">SOP:</span>
-                    <span className={`font-semibold ${getStrengthColor(profileStrength.sop)}`}>
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                      SOP:
+                    </span>
+                    <span
+                      className={`font-semibold ${getStrengthColor(profileStrength.sop)}`}
+                    >
                       {profileStrength.sop}
                     </span>
                   </div>
@@ -366,6 +468,52 @@ export default function DashboardPage() {
                     </div>
                   </div>
                 </button>
+                <button
+                  onClick={() => router.push("/shortlist")}
+                  className="flex w-full items-center gap-3 rounded-lg border border-zinc-200 bg-zinc-50 p-3 text-left shadow-sm transition-all duration-200 hover:bg-zinc-100 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] dark:border-zinc-700 dark:bg-zinc-800 dark:hover:bg-zinc-700"
+                >
+                  <span className="text-xl">📋</span>
+                  <div>
+                    <div className="font-medium text-zinc-900 dark:text-zinc-100">
+                      Your Shortlist
+                    </div>
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400">
+                      Lock choices and manage shortlist
+                    </div>
+                  </div>
+                </button>
+                {lockedCount > 0 ? (
+                  <button
+                    onClick={() => router.push("/application")}
+                    className="flex w-full items-center gap-3 rounded-lg border border-green-200 bg-green-50 p-3 text-left shadow-sm transition-all duration-200 hover:bg-green-100 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] dark:border-green-800 dark:bg-green-900/20 dark:hover:bg-green-900/30"
+                  >
+                    <span className="text-xl">📄</span>
+                    <div>
+                      <div className="font-medium text-green-900 dark:text-green-100">
+                        Application Preparation
+                      </div>
+                      <div className="text-xs text-green-700 dark:text-green-300">
+                        Tasks & documents for {lockedCount} locked{" "}
+                        {lockedCount === 1 ? "university" : "universities"}
+                      </div>
+                    </div>
+                  </button>
+                ) : (
+                  <div className="rounded-lg border border-amber-200 bg-amber-50 p-3 dark:border-amber-800 dark:bg-amber-900/20">
+                    <p className="text-sm font-medium text-amber-800 dark:text-amber-200">
+                      Lock a university to unlock Application Preparation
+                    </p>
+                    <p className="mt-1 text-xs text-amber-700 dark:text-amber-300">
+                      Go to Your Shortlist and lock at least one choice.
+                    </p>
+                    <button
+                      onClick={() => router.push("/shortlist")}
+                      className="mt-2 text-xs font-medium text-amber-700 underline dark:text-amber-300"
+                    >
+                      Your Shortlist →
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -375,7 +523,8 @@ export default function DashboardPage() {
                 To-Do List
               </h2>
               <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                {pendingTodos.length} pending {pendingTodos.length === 1 ? 'task' : 'tasks'}
+                {pendingTodos.length} pending{" "}
+                {pendingTodos.length === 1 ? "task" : "tasks"}
               </p>
               <div className="mt-4 space-y-2 max-h-64 overflow-y-auto">
                 {todos.length === 0 ? (

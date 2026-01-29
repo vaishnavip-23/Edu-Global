@@ -14,6 +14,7 @@ export default function UniversitiesPage() {
   const [recommendations, setRecommendations] = useState(null);
   const [activeTab, setActiveTab] = useState("all");
   const [actionLoading, setActionLoading] = useState({});
+  const [unlockConfirm, setUnlockConfirm] = useState(null);
 
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
@@ -32,15 +33,12 @@ export default function UniversitiesPage() {
       const token = await getToken();
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-      const response = await fetch(
-        `${apiUrl}/api/universities/recommended`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/universities/recommended`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -73,7 +71,7 @@ export default function UniversitiesPage() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (response.ok) {
@@ -89,7 +87,7 @@ export default function UniversitiesPage() {
 
   const handleLock = async (universityId, isLocked) => {
     try {
-      setActionLoading({ ...actionLoading, [universityId]: true });
+      setActionLoading((prev) => ({ ...prev, [universityId]: true }));
       const token = await getToken();
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -102,7 +100,7 @@ export default function UniversitiesPage() {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       if (response.ok) {
@@ -111,7 +109,8 @@ export default function UniversitiesPage() {
     } catch (error) {
       console.error("Error toggling lock:", error);
     } finally {
-      setActionLoading({ ...actionLoading, [universityId]: false });
+      setActionLoading((prev) => ({ ...prev, [universityId]: false }));
+      setUnlockConfirm(null);
     }
   };
 
@@ -169,6 +168,12 @@ export default function UniversitiesPage() {
               >
                 Dashboard
               </button>
+              <button
+                onClick={() => router.push("/shortlist")}
+                className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              >
+                Your Shortlist
+              </button>
               <UserButton afterSignOutUrl="/" />
             </div>
           </div>
@@ -190,10 +195,26 @@ export default function UniversitiesPage() {
         {/* Tabs */}
         <div className="mb-6 flex gap-2 border-b border-zinc-200 dark:border-zinc-800">
           {[
-            { key: "all", label: "All", count: recommendations?.all.length || 0 },
-            { key: "dream", label: "Dream", count: recommendations?.dream.length || 0 },
-            { key: "target", label: "Target", count: recommendations?.target.length || 0 },
-            { key: "safe", label: "Safe", count: recommendations?.safe.length || 0 },
+            {
+              key: "all",
+              label: "All",
+              count: recommendations?.all.length || 0,
+            },
+            {
+              key: "dream",
+              label: "Dream",
+              count: recommendations?.dream.length || 0,
+            },
+            {
+              key: "target",
+              label: "Target",
+              count: recommendations?.target.length || 0,
+            },
+            {
+              key: "safe",
+              label: "Safe",
+              count: recommendations?.safe.length || 0,
+            },
           ].map((tab) => (
             <button
               key={tab.key}
@@ -224,9 +245,40 @@ export default function UniversitiesPage() {
                 university={uni}
                 onShortlist={handleShortlist}
                 onLock={handleLock}
+                onRequestUnlock={setUnlockConfirm}
                 loading={actionLoading[uni.university_id]}
               />
             ))}
+          </div>
+        )}
+
+        {/* Unlock confirmation modal */}
+        {unlockConfirm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+            <div className="w-full max-w-md rounded-xl bg-white p-6 shadow-xl dark:bg-zinc-900">
+              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                Unlock university?
+              </h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                Removing <strong>{unlockConfirm.universityName}</strong> from
+                your locked list will change your application plan. You can lock
+                it again later. Continue?
+              </p>
+              <div className="mt-6 flex justify-end gap-2">
+                <button
+                  onClick={() => setUnlockConfirm(null)}
+                  className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => handleLock(unlockConfirm.universityId, true)}
+                  className="rounded-lg bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700"
+                >
+                  Unlock
+                </button>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -234,7 +286,13 @@ export default function UniversitiesPage() {
   );
 }
 
-function UniversityCard({ university, onShortlist, onLock, loading }) {
+function UniversityCard({
+  university,
+  onShortlist,
+  onLock,
+  onRequestUnlock,
+  loading,
+}) {
   const [expanded, setExpanded] = useState(false);
 
   const getCategoryColor = (category) => {
@@ -265,7 +323,7 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
           </div>
           <span
             className={`rounded-full px-3 py-1 text-xs font-medium ${getCategoryColor(
-              university.category
+              university.category,
             )}`}
           >
             {university.category}
@@ -283,7 +341,9 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
         <div className="flex flex-wrap gap-4 text-zinc-600 dark:text-zinc-400">
           <span>📚 {university.degree_type}</span>
           <span>⏱️ {university.program_duration_years} years</span>
-          <span>💰 ${university.estimated_total_cost_usd.toLocaleString()}/year</span>
+          <span>
+            💰 ${university.estimated_total_cost_usd.toLocaleString()}/year
+          </span>
         </div>
       </div>
 
@@ -342,13 +402,17 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
         <div className="mb-4 space-y-3 border-t border-zinc-200 pt-4 text-sm dark:border-zinc-800">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <span className="text-zinc-500 dark:text-zinc-400">Competition:</span>{" "}
+              <span className="text-zinc-500 dark:text-zinc-400">
+                Competition:
+              </span>{" "}
               <span className="text-zinc-900 dark:text-zinc-50">
                 {university.competition_level}
               </span>
             </div>
             <div>
-              <span className="text-zinc-500 dark:text-zinc-400">Acceptance:</span>{" "}
+              <span className="text-zinc-500 dark:text-zinc-400">
+                Acceptance:
+              </span>{" "}
               <span className="text-zinc-900 dark:text-zinc-50">
                 {university.acceptance_rate_estimate}
               </span>
@@ -360,7 +424,9 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
               </span>
             </div>
             <div>
-              <span className="text-zinc-500 dark:text-zinc-400">Avg Salary:</span>{" "}
+              <span className="text-zinc-500 dark:text-zinc-400">
+                Avg Salary:
+              </span>{" "}
               <span className="text-zinc-900 dark:text-zinc-50">
                 ${university.average_salary_usd.toLocaleString()}
               </span>
@@ -369,7 +435,9 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
 
           {university.strength_tags && university.strength_tags.length > 0 && (
             <div>
-              <span className="text-zinc-500 dark:text-zinc-400">Strengths: </span>
+              <span className="text-zinc-500 dark:text-zinc-400">
+                Strengths:{" "}
+              </span>
               <div className="mt-1 flex flex-wrap gap-2">
                 {university.strength_tags.map((tag, idx) => (
                   <span
@@ -394,7 +462,9 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
           {expanded ? "Show Less" : "View Details"}
         </button>
         <button
-          onClick={() => onShortlist(university.university_id, university.is_shortlisted)}
+          onClick={() =>
+            onShortlist(university.university_id, university.is_shortlisted)
+          }
           disabled={loading}
           className={`flex-1 rounded-lg px-4 py-2 text-sm font-medium transition ${
             university.is_shortlisted
@@ -402,11 +472,22 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
               : "bg-purple-600 text-white hover:bg-purple-700"
           } disabled:opacity-50`}
         >
-          {loading ? "..." : university.is_shortlisted ? "Shortlisted ✓" : "Shortlist"}
+          {loading
+            ? "..."
+            : university.is_shortlisted
+              ? "Shortlisted ✓"
+              : "Shortlist"}
         </button>
         {university.is_shortlisted && (
           <button
-            onClick={() => onLock(university.university_id, university.is_locked)}
+            onClick={() =>
+              university.is_locked && onRequestUnlock
+                ? onRequestUnlock({
+                    universityId: university.university_id,
+                    universityName: university.university_name,
+                  })
+                : onLock(university.university_id, university.is_locked)
+            }
             disabled={loading}
             className={`rounded-lg px-4 py-2 text-sm font-medium transition ${
               university.is_locked
@@ -414,7 +495,7 @@ function UniversityCard({ university, onShortlist, onLock, loading }) {
                 : "bg-zinc-600 text-white hover:bg-zinc-700"
             } disabled:opacity-50`}
           >
-            {university.is_locked ? "🔒" : "🔓"}
+            {university.is_locked ? "🔒 Unlock" : "🔓 Lock"}
           </button>
         )}
       </div>

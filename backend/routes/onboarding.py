@@ -134,10 +134,12 @@ async def submit_onboarding(
 
         db.add(onboarding)
 
-        # Mark user as onboarding complete only on final submit
+        # Mark user as onboarding complete only on final submit; advance to stage 2
         if data.is_final_submit:
             logger.info(f"Marking onboarding as complete for user: {clerk_user_id}")
             user.onboarding_complete = True
+            if user.current_stage < 2:
+                user.current_stage = 2  # Discovering Universities
             db.add(user)
 
         db.commit()
