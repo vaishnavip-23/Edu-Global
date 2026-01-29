@@ -29,3 +29,42 @@ app.include_router(onboarding.router)
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
+
+
+@app.get("/api/test-db")
+async def test_database():
+    """Test database connection and tables"""
+    from sqlalchemy import inspect
+    from backend.database import engine, SessionLocal
+    from backend.models import User, Onboarding
+
+    try:
+        # Test connection
+        with engine.connect() as conn:
+            conn.execute("SELECT 1")
+
+        # Check if tables exist
+        inspector = inspect(engine)
+        tables = inspector.get_table_names()
+
+        # Test query
+        db = SessionLocal()
+        user_count = db.query(User).count()
+        onboarding_count = db.query(Onboarding).count()
+        db.close()
+
+        return {
+            "status": "ok",
+            "database_connected": True,
+            "tables": tables,
+            "user_count": user_count,
+            "onboarding_count": onboarding_count,
+            "database_url": engine.url.database
+        }
+
+    except Exception as e:
+        return {
+            "status": "error",
+            "database_connected": False,
+            "error": str(e)
+        }

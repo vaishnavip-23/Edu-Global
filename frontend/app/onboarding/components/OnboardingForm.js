@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth, useUser } from "@clerk/nextjs";
 import StepOne from "./steps/StepOne";
@@ -44,14 +44,7 @@ export function OnboardingForm() {
     sop_status: "",
   });
 
-  // Fetch existing onboarding data when component mounts
-  useEffect(() => {
-    if (user?.id) {
-      fetchExistingData();
-    }
-  }, [user?.id]);
-
-  const fetchExistingData = async () => {
+  const fetchExistingData = useCallback(async () => {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
       const response = await fetch(
@@ -100,7 +93,14 @@ export function OnboardingForm() {
     } finally {
       setLoadingData(false);
     }
-  };
+  }, [user]);
+
+  // Fetch existing onboarding data when component mounts
+  useEffect(() => {
+    if (user?.id) {
+      fetchExistingData();
+    }
+  }, [user?.id, fetchExistingData]);
 
   const calculateStartStep = (data) => {
     // Check Step 1 completion

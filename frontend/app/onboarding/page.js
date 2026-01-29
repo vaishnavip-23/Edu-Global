@@ -2,7 +2,7 @@
 
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { OnboardingForm } from "./components/OnboardingForm";
 
 export default function OnboardingPage() {
@@ -17,37 +17,11 @@ export default function OnboardingPage() {
       return;
     }
 
-    // If user is signed in, check onboarding status
+    // If user is signed in, show form
     if (isLoaded && isSignedIn && user) {
-      checkOnboardingStatus();
-    }
-  }, [isLoaded, isSignedIn, user, router]);
-
-  const checkOnboardingStatus = async () => {
-    try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-      const response = await fetch(
-        `${apiUrl}/api/onboarding/status/${user.id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        if (data.onboarding_complete) {
-          // User has completed onboarding, redirect to dashboard
-          router.push("/dashboard");
-        }
-      }
-    } catch (error) {
-      console.error("Error checking onboarding status:", error);
-    } finally {
       setCheckingStatus(false);
     }
-  };
+  }, [isLoaded, isSignedIn, user, router]);
 
   // Show loading state while Clerk is loading or checking status
   if (!isLoaded || checkingStatus) {

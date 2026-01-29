@@ -2,7 +2,7 @@
 
 import { useUser, UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export default function DashboardPage() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -10,18 +10,7 @@ export default function DashboardPage() {
   const [onboardingData, setOnboardingData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (isLoaded && !isSignedIn) {
-      router.push("/sign-in");
-      return;
-    }
-
-    if (isLoaded && isSignedIn) {
-      checkOnboardingAndFetchData();
-    }
-  }, [isLoaded, isSignedIn, router]);
-
-  const checkOnboardingAndFetchData = async () => {
+  const checkOnboardingAndFetchData = useCallback(async () => {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -64,7 +53,18 @@ export default function DashboardPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user, router]);
+
+  useEffect(() => {
+    if (isLoaded && !isSignedIn) {
+      router.push("/sign-in");
+      return;
+    }
+
+    if (isLoaded && isSignedIn) {
+      checkOnboardingAndFetchData();
+    }
+  }, [isLoaded, isSignedIn, router, checkOnboardingAndFetchData]);
 
   if (!isLoaded || loading) {
     return (
@@ -202,7 +202,7 @@ export default function DashboardPage() {
         {/* Placeholder for future features */}
         <div className="mt-8 rounded-xl border-2 border-dashed border-zinc-200 bg-zinc-50/50 p-8 text-center dark:border-zinc-800 dark:bg-zinc-900/50">
           <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            More features coming soon! We're building AI-powered guidance, university recommendations, and application tracking.
+            More features coming soon! We&apos;re building AI-powered guidance, university recommendations, and application tracking.
           </p>
         </div>
       </div>
