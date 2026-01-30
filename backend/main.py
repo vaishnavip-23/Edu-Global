@@ -25,7 +25,12 @@ app = FastAPI(
 # CORS middleware - add FIRST, before other middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", FRONTEND_URL],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "https://edu-global-hackathon.vercel.app",
+        FRONTEND_URL
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
