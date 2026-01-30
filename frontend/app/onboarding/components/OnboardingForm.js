@@ -122,7 +122,7 @@ export function OnboardingForm() {
     } finally {
       setLoadingData(false);
     }
-  }, [user]);
+  }, [user, getToken]);
 
   // Fetch existing onboarding data when component mounts
   useEffect(() => {

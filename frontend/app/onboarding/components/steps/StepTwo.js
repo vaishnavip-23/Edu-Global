@@ -129,7 +129,7 @@ export default function StepTwo({ formData, updateFormData }) {
       <div>
         <FormLabel required>Preferred Countries</FormLabel>
         <p className="mb-3 text-xs text-zinc-600 dark:text-zinc-400">
-          Select all countries you're interested in
+          Select all countries you&apos;re interested in
         </p>
         <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3 sm:gap-2">
           {countries.map((country) => (

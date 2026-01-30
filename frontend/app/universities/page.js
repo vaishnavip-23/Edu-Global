@@ -255,7 +255,7 @@ export default function UniversitiesPage() {
                 Lock {lockConfirm.universityName}?
               </h3>
               <p className="mt-3 text-center text-sm text-stone-600 dark:text-stone-400">
-                You're about to commit to applying to{" "}
+                You&apos;re about to commit to applying to{" "}
                 <strong>{lockConfirm.universityName}</strong> ({lockConfirm.country}).
               </p>
 
@@ -264,7 +264,7 @@ export default function UniversitiesPage() {
                   What locking means:
                 </p>
                 <ul className="space-y-1 text-xs text-green-800 dark:text-green-400">
-                  <li>✓ You're committing to apply to this university</li>
+                  <li>✓ You&apos;re committing to apply to this university</li>
                   <li>✓ Application guidance & tasks will be unlocked</li>
                   <li>✓ Your strategy becomes university-specific</li>
                   <li>✓ You can unlock later if needed (with a warning)</li>

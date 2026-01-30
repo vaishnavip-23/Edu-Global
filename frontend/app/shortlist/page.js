@@ -165,7 +165,7 @@ export default function ShortlistPage() {
             <>
               <div className="mb-6 rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-900/50 dark:bg-blue-950/20">
                 <p className="text-sm text-blue-900 dark:text-blue-300">
-                  <strong>💡 Tip:</strong> Lock universities you're committed to applying to. This will unlock application guidance and generate personalized to-do tasks.
+                  <strong>💡 Tip:</strong> Lock universities you&apos;re committed to applying to. This will unlock application guidance and generate personalized to-do tasks.
                 </p>
               </div>
 
@@ -200,7 +200,7 @@ export default function ShortlistPage() {
                 Lock {lockConfirm.universityName}?
               </h3>
               <p className="mt-3 text-center text-sm text-stone-600 dark:text-stone-400">
-                You're about to commit to applying to{" "}
+                You&apos;re about to commit to applying to{" "}
                 <strong>{lockConfirm.universityName}</strong> ({lockConfirm.country}).
               </p>
 
@@ -209,7 +209,7 @@ export default function ShortlistPage() {
                   What locking means:
                 </p>
                 <ul className="space-y-1 text-xs text-green-800 dark:text-green-400">
-                  <li>✓ You're committing to apply to this university</li>
+                  <li>✓ You&apos;re committing to apply to this university</li>
                   <li>✓ Application guidance & tasks will be unlocked</li>
                   <li>✓ Your strategy becomes university-specific</li>
                   <li>✓ You can unlock later if needed (with a warning)</li>

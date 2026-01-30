@@ -217,7 +217,7 @@ export default function StepFour({ formData, updateFormData }) {
 
       {/* Statement of Purpose */}
       <FormSelect
-        label="Statement of Purpose (SOP) Status"
+        label="Statement of Purpose (SOP) Status *"
         value={formData.sop_status}
         onChange={(e) => updateFormData("sop_status", e.target.value)}
         options={sopOptions}
