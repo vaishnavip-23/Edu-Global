@@ -68,6 +68,7 @@ app.include_router(users.router)
 
 
 @app.get("/health")
+@app.head("/health")
 async def health_check():
     return {"status": "ok"}
 
