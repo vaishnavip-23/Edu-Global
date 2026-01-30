@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 from backend.database import get_db
 from backend.models import User, Todo
@@ -13,18 +13,18 @@ router = APIRouter(prefix="/api/todos", tags=["todos"])
 
 
 class TodoCreate(BaseModel):
-    title: str
-    description: Optional[str] = None
-    priority: Optional[str] = "medium"
-    category: Optional[str] = "general"
-    university_id: Optional[str] = None
+    title: str = Field(..., min_length=1, max_length=255, description="Task title")
+    description: Optional[str] = Field(None, max_length=1000, description="Task description")
+    priority: Optional[str] = Field("medium", pattern="^(low|medium|high)$", description="Task priority")
+    category: Optional[str] = Field("general", max_length=100, description="Task category")
+    university_id: Optional[str] = Field(None, max_length=50, description="University ID if task is university-specific")
 
 
 class TodoUpdate(BaseModel):
-    status: Optional[str] = None
-    title: Optional[str] = None
-    description: Optional[str] = None
-    priority: Optional[str] = None
+    status: Optional[str] = Field(None, pattern="^(pending|in_progress|completed)$", description="Task status")
+    title: Optional[str] = Field(None, min_length=1, max_length=255, description="Task title")
+    description: Optional[str] = Field(None, max_length=1000, description="Task description")
+    priority: Optional[str] = Field(None, pattern="^(low|medium|high)$", description="Task priority")
 
 
 @router.get("/")

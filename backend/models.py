@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey, DECIMAL, Text, Float, Date
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from database import Base
+from backend.database import Base
 
 
 class User(Base):
@@ -17,6 +17,7 @@ class User(Base):
 
     onboarding = relationship("Onboarding", back_populates="user", uselist=False)
     todos = relationship("Todo", back_populates="user", cascade="all, delete-orphan")
+    applications = relationship("Application", back_populates="user", cascade="all, delete-orphan")
 
 
 class Onboarding(Base):
@@ -48,6 +49,14 @@ class Onboarding(Base):
     gmat_status = Column(String(50))
     sop_status = Column(String(50))
 
+    # Exam Scores (nullable for backward compatibility)
+    ielts_score = Column(Float)  # 0-9
+    toefl_score = Column(Integer)  # 0-120
+    gre_quant_score = Column(Integer)  # 130-170
+    gre_verbal_score = Column(Integer)  # 130-170
+    gre_awa_score = Column(Float)  # 0-6
+    gmat_score = Column(Integer)  # 200-800
+
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -68,7 +77,7 @@ class Shortlist(Base):
 
     # Composite unique constraint: one user can't shortlist same university twice
     __table_args__ = (
-        {'extend_existing': True}
+        {'extend_existing': True},
     )
 
 
@@ -88,6 +97,21 @@ class Todo(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     user = relationship("User", back_populates="todos")
+
+
+class Application(Base):
+    __tablename__ = "applications"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    shortlist_id = Column(Integer, ForeignKey("shortlist.id"), nullable=False, index=True)
+    university_id = Column(String(50), nullable=False)  # e.g., "UNI-001"
+    status = Column(String(50), default="in_progress")  # in_progress, submitted, accepted, rejected
+    application_deadline = Column(Date)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    user = relationship("User", back_populates="applications")
 
 
 class University(Base):

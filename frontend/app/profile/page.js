@@ -1,9 +1,11 @@
 "use client";
 
-import { useUser, UserButton } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
 import { useAuth } from "@clerk/nextjs";
+import { useOnboardingProtection } from "../hooks/useOnboardingProtection";
+import OnboardingRequiredModal from "../components/OnboardingRequiredModal";
 import StepOne from "../onboarding/components/steps/StepOne";
 import StepTwo from "../onboarding/components/steps/StepTwo";
 import StepThree from "../onboarding/components/steps/StepThree";
@@ -13,6 +15,12 @@ export default function ProfilePage() {
   const { isLoaded, isSignedIn, user } = useUser();
   const { getToken } = useAuth();
   const router = useRouter();
+  const {
+    loading: onboardingLoading,
+    complete: onboardingComplete,
+    showModal,
+    closeModalAndRedirect,
+  } = useOnboardingProtection();
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -38,11 +46,17 @@ export default function ProfilePage() {
   });
 
   const fetchProfile = useCallback(async () => {
+    if (!onboardingComplete) return;
+
     try {
       setLoading(true);
+      const token = await getToken();
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
       const response = await fetch(`${apiUrl}/api/onboarding/${user.id}`, {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
       if (response.ok) {
         const data = await response.json();
@@ -71,37 +85,23 @@ export default function ProfilePage() {
           gmat_status: data.gmat_status || "",
           sop_status: data.sop_status || "",
         });
-      } else if (response.status === 404) {
-        router.push("/onboarding");
       }
     } catch (err) {
       console.error("Error fetching profile:", err);
     } finally {
       setLoading(false);
     }
-  }, [user?.id, router]);
+  }, [user?.id, getToken, onboardingComplete]);
 
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
       router.push("/sign-in");
       return;
     }
-    if (isLoaded && isSignedIn && user?.id) {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-      fetch(`${apiUrl}/api/onboarding/status/${user.id}`, {
-        headers: { "Content-Type": "application/json" },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (!data.onboarding_complete) {
-            router.push("/onboarding");
-            return;
-          }
-          fetchProfile();
-        })
-        .catch(() => fetchProfile());
+    if (isLoaded && isSignedIn && onboardingComplete) {
+      fetchProfile();
     }
-  }, [isLoaded, isSignedIn, user?.id, router, fetchProfile]);
+  }, [isLoaded, isSignedIn, onboardingComplete, fetchProfile, router]);
 
   const updateFormData = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -141,14 +141,17 @@ export default function ProfilePage() {
         sop_status: formData.sop_status || null,
         is_final_submit: false,
       };
-      const response = await fetch(`${apiUrl}/api/onboarding/submit`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        `${apiUrl}/api/onboarding/update/${user.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(apiData),
         },
-        body: JSON.stringify(apiData),
-      });
+      );
       if (!response.ok) {
         const errData = await response.json();
         throw new Error(errData.detail || "Failed to save");
@@ -161,13 +164,13 @@ export default function ProfilePage() {
     }
   };
 
-  if (!isLoaded || loading) {
+  if (!isLoaded || onboardingLoading || loading) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-black dark:to-zinc-900">
+      <main className="min-h-screen bg-gradient-to-br from-stone-50 to-stone-100 dark:from-stone-950 dark:to-stone-900" id="main-content">
         <div className="mx-auto max-w-2xl px-4 py-10 flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent"></div>
-            <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-orange-600 border-r-transparent"></div>
+            <p className="mt-4 text-sm text-stone-600 dark:text-stone-400">
               Loading profile...
             </p>
           </div>
@@ -177,58 +180,38 @@ export default function ProfilePage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-black dark:to-zinc-900">
-      <header className="border-b border-zinc-200 bg-white/50 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/50">
-        <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-zinc-900 text-xs font-semibold text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900">
-              SA
-            </div>
-            <span className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
-              Edit Profile
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <button
-              onClick={() => router.push("/dashboard")}
-              className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-            >
-              Dashboard
-            </button>
-            <UserButton afterSignOutUrl="/" />
-          </div>
-        </div>
-      </header>
-
-      <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6">
-        <h1 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50">
-          Profile Management
-        </h1>
-        <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+    <>
+      <OnboardingRequiredModal isOpen={showModal} onClose={closeModalAndRedirect} />
+      <main className="min-h-screen bg-gradient-to-br from-stone-50 to-stone-100 dark:from-stone-950 dark:to-stone-900 animate-fade-in" id="main-content">
+        <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6">
+          <h1 className="text-2xl font-semibold text-stone-900 dark:text-stone-50">
+            Profile Management
+          </h1>
+        <p className="mt-2 text-sm text-stone-600 dark:text-stone-400">
           Update your profile. Changes will update recommendations and tasks.
         </p>
 
         <div className="mt-8 space-y-10">
           <section>
-            <h2 className="mb-4 text-lg font-medium text-zinc-900 dark:text-zinc-50">
+            <h2 className="mb-4 text-lg font-medium text-stone-900 dark:text-stone-50">
               Academic Background
             </h2>
             <StepOne formData={formData} updateFormData={updateFormData} />
           </section>
           <section>
-            <h2 className="mb-4 text-lg font-medium text-zinc-900 dark:text-zinc-50">
+            <h2 className="mb-4 text-lg font-medium text-stone-900 dark:text-stone-50">
               Study Goal
             </h2>
             <StepTwo formData={formData} updateFormData={updateFormData} />
           </section>
           <section>
-            <h2 className="mb-4 text-lg font-medium text-zinc-900 dark:text-zinc-50">
+            <h2 className="mb-4 text-lg font-medium text-stone-900 dark:text-stone-50">
               Budget
             </h2>
             <StepThree formData={formData} updateFormData={updateFormData} />
           </section>
           <section>
-            <h2 className="mb-4 text-lg font-medium text-zinc-900 dark:text-zinc-50">
+            <h2 className="mb-4 text-lg font-medium text-stone-900 dark:text-stone-50">
               Exams & Readiness
             </h2>
             <StepFour formData={formData} updateFormData={updateFormData} />
@@ -248,18 +231,19 @@ export default function ProfilePage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="rounded-lg bg-purple-600 px-6 py-2.5 text-sm font-medium text-white hover:bg-purple-700 disabled:opacity-50"
+            className="rounded-lg bg-orange-600 px-6 py-2.5 text-sm font-medium text-white hover:bg-orange-700 disabled:opacity-50"
           >
             {saving ? "Saving..." : "Save changes"}
           </button>
           <button
             onClick={() => router.push("/dashboard")}
-            className="rounded-lg border border-zinc-200 px-6 py-2.5 text-sm font-medium text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
+            className="rounded-lg border border-stone-200 px-6 py-2.5 text-sm font-medium text-stone-700 hover:bg-stone-50 dark:border-stone-700 dark:text-stone-300 dark:hover:bg-stone-800"
           >
-            Cancel
+            Back to Dashboard
           </button>
         </div>
       </div>
     </main>
+    </>
   );
 }

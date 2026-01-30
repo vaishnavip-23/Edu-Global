@@ -1,0 +1,4893 @@
+[
+  {
+    "id": "u1",
+    "name": "Massachusetts Institute of Technology",
+    "website": "https://www.mit.edu",
+    "country": "United States",
+    "state": "Massachusetts",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Artificial Intelligence", "Data Science"],
+    "rankingTier": "Top10",
+    "academicRequirements": {
+      "gpaMin": 3.7,
+      "gpaCompetitive": 3.9
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 165,
+        "minVerbal": 160,
+        "minTotal": 325
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 55000,
+      "living": 22000,
+      "total": 77000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u2",
+    "name": "Arizona State University",
+    "website": "https://www.asu.edu",
+    "country": "United States",
+    "state": "Arizona",
+    "degreesOffered": ["Masters", "Bachelors"],
+    "fields": ["Software Engineering", "Computer Science", "Cybersecurity"],
+    "rankingTier": "Top300",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.2
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 28000,
+      "living": 16000,
+      "total": 44000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u3",
+    "name": "University of Oxford",
+    "website": "https://www.ox.ac.uk",
+    "country": "United Kingdom",
+    "state": "Oxfordshire",
+    "degreesOffered": ["Masters", "MPhil", "PhD"],
+    "fields": ["Computer Science", "Machine Learning"],
+    "rankingTier": "Top10",
+    "academicRequirements": {
+      "gpaMin": 3.6,
+      "gpaCompetitive": 3.85
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.5
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 110
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 49000,
+      "living": 20000,
+      "total": 69000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u4",
+    "name": "Technical University of Munich",
+    "website": "https://www.tum.de",
+    "country": "Germany",
+    "state": "Bavaria",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Artificial Intelligence", "Computer Science", "Robotics"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.7
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 88
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 3000,
+      "living": 15000,
+      "total": 18000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u5",
+    "name": "University of Toronto",
+    "website": "https://www.utoronto.ca",
+    "country": "Canada",
+    "state": "Ontario",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 93
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 155,
+        "minTotal": 315
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 42000,
+      "living": 18000,
+      "total": 60000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u6",
+    "name": "National University of Singapore",
+    "website": "https://www.nus.edu.sg",
+    "country": "Singapore",
+    "state": "Singapore",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "AI"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.7
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 162,
+        "minVerbal": 155,
+        "minTotal": 317
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 36000,
+      "living": 17000,
+      "total": 53000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u7",
+    "name": "University of Melbourne",
+    "website": "https://www.unimelb.edu.au",
+    "country": "Australia",
+    "state": "Victoria",
+    "degreesOffered": ["Masters", "Bachelors"],
+    "fields": ["Computer Science", "Data Science", "Information Technology"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.7,
+      "gpaCompetitive": 3.2
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 30000,
+      "living": 18000,
+      "total": 48000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u8",
+    "name": "Trinity College Dublin",
+    "website": "https://www.tcd.ie",
+    "country": "Ireland",
+    "state": "Dublin",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Analytics"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 88
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 30000,
+      "living": 17000,
+      "total": 47000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u9",
+    "name": "DePaul University",
+    "website": "https://www.depaul.edu",
+    "country": "United States",
+    "state": "Illinois",
+    "degreesOffered": ["Masters", "Bachelors"],
+    "fields": ["Data Science", "Computer Science", "Software Engineering"],
+    "rankingTier": "Top500",
+    "academicRequirements": {
+      "gpaMin": 2.7,
+      "gpaCompetitive": 3.1
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 26000,
+      "living": 16000,
+      "total": 42000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u10",
+    "name": "INSEAD",
+    "website": "https://www.insead.edu",
+    "country": "France",
+    "state": "Île-de-France",
+    "degreesOffered": ["MBA"],
+    "fields": ["Business", "Management"],
+    "rankingTier": "Top10",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 105
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": true,
+        "recommended": true,
+        "minScore": 680
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 65000,
+      "living": 18000,
+      "total": 83000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u11",
+    "name": "Delft University of Technology",
+    "website": "https://www.tudelft.nl",
+    "country": "Netherlands",
+    "state": "South Holland",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Engineering", "Computer Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 20000,
+      "living": 16000,
+      "total": 36000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u12",
+    "name": "University of California, Los Angeles",
+    "website": "https://www.ucla.edu",
+    "country": "United States",
+    "state": "California",
+    "degreesOffered": ["PhD", "Masters"],
+    "fields": ["Computer Science", "Artificial Intelligence", "Data Science"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.6,
+      "gpaCompetitive": 3.9
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 165,
+        "minVerbal": 160,
+        "minTotal": 325
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 50000,
+      "living": 21000,
+      "total": 71000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u13",
+    "name": "Hanyang University",
+    "website": "https://www.hanyang.ac.kr",
+    "country": "South Korea",
+    "state": "Seoul",
+    "degreesOffered": ["Masters", "Bachelors"],
+    "fields": ["Engineering", "Computer Science", "Electronics"],
+    "rankingTier": "Top300",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 16000,
+      "living": 12000,
+      "total": 28000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u14",
+    "name": "University of Texas at Austin",
+    "website": "https://www.utexas.edu",
+    "country": "United States",
+    "state": "Texas",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.7
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 162,
+        "minVerbal": 158,
+        "minTotal": 320
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 42000,
+      "living": 17000,
+      "total": 59000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u15",
+    "name": "University of British Columbia",
+    "website": "https://www.ubc.ca",
+    "country": "Canada",
+    "state": "British Columbia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 155,
+        "minTotal": 315
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 38000,
+      "living": 16000,
+      "total": 54000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u16",
+    "name": "Stanford University",
+    "website": "https://www.stanford.edu",
+    "country": "United States",
+    "state": "California",
+    "degreesOffered": ["Masters", "PhD", "MS"],
+    "fields": [
+      "Computer Science",
+      "Artificial Intelligence",
+      "Machine Learning"
+    ],
+    "rankingTier": "Top10",
+    "academicRequirements": {
+      "gpaMin": 3.7,
+      "gpaCompetitive": 3.95
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 168,
+        "minVerbal": 162,
+        "minTotal": 330
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 57000,
+      "living": 24000,
+      "total": 81000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u17",
+    "name": "Carnegie Mellon University",
+    "website": "https://www.cmu.edu",
+    "country": "United States",
+    "state": "Pennsylvania",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Software Engineering", "AI", "Robotics"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.6,
+      "gpaCompetitive": 3.85
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 165,
+        "minVerbal": 158,
+        "minTotal": 323
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 54000,
+      "living": 20000,
+      "total": 74000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u18",
+    "name": "University of Waterloo",
+    "website": "https://uwaterloo.ca",
+    "country": "Canada",
+    "state": "Ontario",
+    "degreesOffered": ["Masters", "MASc", "PhD"],
+    "fields": ["Computer Science", "Software Engineering", "Data Science"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 155,
+        "minTotal": 315
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 35000,
+      "living": 15000,
+      "total": 50000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u19",
+    "name": "University of Cambridge",
+    "website": "https://www.cam.ac.uk",
+    "country": "United Kingdom",
+    "state": "Cambridgeshire",
+    "degreesOffered": ["Masters", "MPhil", "PhD"],
+    "fields": ["Computer Science", "Machine Learning", "AI"],
+    "rankingTier": "Top10",
+    "academicRequirements": {
+      "gpaMin": 3.7,
+      "gpaCompetitive": 3.9
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 110
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 50000,
+      "living": 19000,
+      "total": 69000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u20",
+    "name": "Imperial College London",
+    "website": "https://www.imperial.ac.uk",
+    "country": "United Kingdom",
+    "state": "London",
+    "degreesOffered": ["Masters", "MSc", "PhD"],
+    "fields": ["Computer Science", "Data Science", "AI"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.5,
+      "gpaCompetitive": 3.8
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 45000,
+      "living": 22000,
+      "total": 67000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u21",
+    "name": "ETH Zurich",
+    "website": "https://ethz.ch",
+    "country": "Switzerland",
+    "state": "Zurich",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Robotics"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.5,
+      "gpaCompetitive": 3.8
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 165,
+        "minVerbal": 155,
+        "minTotal": 320
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 1500,
+      "living": 22000,
+      "total": 23500
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u22",
+    "name": "Georgia Institute of Technology",
+    "website": "https://www.gatech.edu",
+    "country": "United States",
+    "state": "Georgia",
+    "degreesOffered": ["Masters", "MS", "PhD"],
+    "fields": ["Computer Science", "Cybersecurity", "Machine Learning"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.7
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 163,
+        "minVerbal": 155,
+        "minTotal": 318
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 33000,
+      "living": 16000,
+      "total": 49000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u23",
+    "name": "University of Washington",
+    "website": "https://www.washington.edu",
+    "country": "United States",
+    "state": "Washington",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Information Systems"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.4,
+      "gpaCompetitive": 3.75
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 163,
+        "minVerbal": 157,
+        "minTotal": 320
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 38000,
+      "living": 19000,
+      "total": 57000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u24",
+    "name": "University of Illinois Urbana-Champaign",
+    "website": "https://illinois.edu",
+    "country": "United States",
+    "state": "Illinois",
+    "degreesOffered": ["Masters", "MCS", "PhD"],
+    "fields": ["Computer Science", "Data Science"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 36000,
+      "living": 15000,
+      "total": 51000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u25",
+    "name": "University of Southern California",
+    "website": "https://www.usc.edu",
+    "country": "United States",
+    "state": "California",
+    "degreesOffered": ["Masters", "MS"],
+    "fields": ["Computer Science", "Data Science", "AI"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 52000,
+      "living": 21000,
+      "total": 73000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u26",
+    "name": "New York University",
+    "website": "https://www.nyu.edu",
+    "country": "United States",
+    "state": "New York",
+    "degreesOffered": ["Masters", "MS"],
+    "fields": ["Computer Science", "Data Science", "Cybersecurity"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 50000,
+      "living": 25000,
+      "total": 75000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u27",
+    "name": "University of Edinburgh",
+    "website": "https://www.ed.ac.uk",
+    "country": "United Kingdom",
+    "state": "Scotland",
+    "degreesOffered": ["Masters", "MSc", "PhD"],
+    "fields": ["Computer Science", "AI", "Data Science"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 35000,
+      "living": 16000,
+      "total": 51000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u28",
+    "name": "University College London",
+    "website": "https://www.ucl.ac.uk",
+    "country": "United Kingdom",
+    "state": "London",
+    "degreesOffered": ["Masters", "MSc", "PhD"],
+    "fields": ["Computer Science", "Machine Learning", "Data Science"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.5,
+      "gpaCompetitive": 3.75
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 40000,
+      "living": 21000,
+      "total": 61000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u29",
+    "name": "McGill University",
+    "website": "https://www.mcgill.ca",
+    "country": "Canada",
+    "state": "Quebec",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Software Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 86
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 22000,
+      "living": 14000,
+      "total": 36000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u30",
+    "name": "Nanyang Technological University",
+    "website": "https://www.ntu.edu.sg",
+    "country": "Singapore",
+    "state": "Singapore",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "AI", "Cybersecurity"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 32000,
+      "living": 16000,
+      "total": 48000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u31",
+    "name": "University of Sydney",
+    "website": "https://www.sydney.edu.au",
+    "country": "Australia",
+    "state": "New South Wales",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "IT"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 85
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 38000,
+      "living": 20000,
+      "total": 58000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u32",
+    "name": "University of Queensland",
+    "website": "https://www.uq.edu.au",
+    "country": "Australia",
+    "state": "Queensland",
+    "degreesOffered": ["Masters", "MPhil"],
+    "fields": ["Computer Science", "Data Science"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.7,
+      "gpaCompetitive": 3.2
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 87
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 35000,
+      "living": 18000,
+      "total": 53000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u33",
+    "name": "RWTH Aachen University",
+    "website": "https://www.rwth-aachen.de",
+    "country": "Germany",
+    "state": "North Rhine-Westphalia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Engineering", "Robotics"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 3500,
+      "living": 14000,
+      "total": 17500
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u34",
+    "name": "KTH Royal Institute of Technology",
+    "website": "https://www.kth.se",
+    "country": "Sweden",
+    "state": "Stockholm",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Machine Learning", "Software Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 18000,
+      "living": 16000,
+      "total": 34000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u35",
+    "name": "University of Amsterdam",
+    "website": "https://www.uva.nl",
+    "country": "Netherlands",
+    "state": "North Holland",
+    "degreesOffered": ["Masters", "MSc"],
+    "fields": ["Computer Science", "AI", "Data Science"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 22000,
+      "living": 16000,
+      "total": 38000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u37",
+    "name": "HEC Paris",
+    "website": "https://www.hec.edu",
+    "country": "France",
+    "state": "Île-de-France",
+    "degreesOffered": ["MBA", "Masters"],
+    "fields": ["Business", "Management", "Finance"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": true,
+        "recommended": true,
+        "minScore": 670
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 55000,
+      "living": 18000,
+      "total": 73000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u38",
+    "name": "Korea Advanced Institute of Science and Technology",
+    "website": "https://www.kaist.ac.kr",
+    "country": "South Korea",
+    "state": "Daejeon",
+    "degreesOffered": ["Masters", "MS", "PhD"],
+    "fields": ["Computer Science", "AI", "Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 83
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 8000,
+      "living": 12000,
+      "total": 20000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u39",
+    "name": "University of Tokyo",
+    "website": "https://www.u-tokyo.ac.jp",
+    "country": "Japan",
+    "state": "Tokyo",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Engineering", "Robotics"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 88
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 6000,
+      "living": 16000,
+      "total": 22000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u40",
+    "name": "Kyoto University",
+    "website": "https://www.kyoto-u.ac.jp",
+    "country": "Japan",
+    "state": "Kyoto",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 5500,
+      "living": 15000,
+      "total": 20500
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u41",
+    "name": "Chalmers University of Technology",
+    "website": "https://www.chalmers.se",
+    "country": "Sweden",
+    "state": "Gothenburg",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Software Engineering", "Data Science"],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 16000,
+      "living": 14000,
+      "total": 30000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u42",
+    "name": "Northeastern University",
+    "website": "https://www.northeastern.edu",
+    "country": "United States",
+    "state": "Massachusetts",
+    "degreesOffered": ["Masters", "MS"],
+    "fields": ["Computer Science", "Data Science", "Information Systems"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 45000,
+      "living": 19000,
+      "total": 64000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u43",
+    "name": "Boston University",
+    "website": "https://www.bu.edu",
+    "country": "United States",
+    "state": "Massachusetts",
+    "degreesOffered": ["Masters", "MS"],
+    "fields": ["Computer Science", "Data Science", "Cybersecurity"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 48000,
+      "living": 20000,
+      "total": 68000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u44",
+    "name": "Purdue University",
+    "website": "https://www.purdue.edu",
+    "country": "United States",
+    "state": "Indiana",
+    "degreesOffered": ["Masters", "MS", "PhD"],
+    "fields": ["Computer Science", "Data Science", "AI"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 77
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 29000,
+      "living": 14000,
+      "total": 43000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u45",
+    "name": "University of Michigan",
+    "website": "https://www.umich.edu",
+    "country": "United States",
+    "state": "Michigan",
+    "degreesOffered": ["Masters", "MS", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Information"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.3,
+      "gpaCompetitive": 3.7
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 84
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 162,
+        "minVerbal": 155,
+        "minTotal": 317
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 50000,
+      "living": 17000,
+      "total": 67000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u46",
+    "name": "University of Pennsylvania",
+    "website": "https://www.upenn.edu",
+    "country": "United States",
+    "state": "Pennsylvania",
+    "degreesOffered": ["Masters", "MSE", "PhD"],
+    "fields": ["Computer Science", "Data Science", "AI"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.5,
+      "gpaCompetitive": 3.8
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 165,
+        "minVerbal": 158,
+        "minTotal": 323
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 56000,
+      "living": 22000,
+      "total": 78000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u47",
+    "name": "Columbia University",
+    "website": "https://www.columbia.edu",
+    "country": "United States",
+    "state": "New York",
+    "degreesOffered": ["Masters", "MS", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Machine Learning"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.5,
+      "gpaCompetitive": 3.8
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 165,
+        "minVerbal": 155,
+        "minTotal": 320
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 54000,
+      "living": 26000,
+      "total": 80000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u48",
+    "name": "Cornell University",
+    "website": "https://www.cornell.edu",
+    "country": "United States",
+    "state": "New York",
+    "degreesOffered": ["Masters", "MEng", "PhD"],
+    "fields": ["Computer Science", "Information Science", "Data Science"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.5,
+      "gpaCompetitive": 3.8
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 165,
+        "minVerbal": 158,
+        "minTotal": 323
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 52000,
+      "living": 20000,
+      "total": 72000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u49",
+    "name": "University of Maryland",
+    "website": "https://www.umd.edu",
+    "country": "United States",
+    "state": "Maryland",
+    "degreesOffered": ["Masters", "MS", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Cybersecurity"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 84
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 38000,
+      "living": 16000,
+      "total": 54000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u50",
+    "name": "University of Minnesota",
+    "website": "https://www.umn.edu",
+    "country": "United States",
+    "state": "Minnesota",
+    "degreesOffered": ["Masters", "MS", "PhD"],
+    "fields": ["Computer Science", "Data Science"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 150,
+        "minTotal": 310
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 32000,
+      "living": 15000,
+      "total": 47000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u52",
+    "name": "London Business School",
+    "website": "https://www.london.edu",
+    "country": "United Kingdom",
+    "state": "London",
+    "degreesOffered": ["MBA", "Masters"],
+    "fields": ["Business Administration", "Finance", "Entrepreneurship"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.4,
+      "gpaCompetitive": 3.7
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.5
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 105
+      },
+      "gre": {
+        "required": false,
+        "recommended": false
+      },
+      "gmat": {
+        "required": true,
+        "minScore": 680
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 150000,
+      "living": 25000,
+      "total": 175000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Very High"
+    }
+  },
+  {
+    "id": "u53",
+    "name": "Indian Institute of Management Ahmedabad",
+    "website": "https://www.iima.ac.in",
+    "country": "India",
+    "state": "Gujarat",
+    "degreesOffered": ["MBA", "Masters"],
+    "fields": ["Business Administration", "Finance", "Management"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": false,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": false
+      },
+      "gmat": {
+        "required": true,
+        "minScore": 620
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 12000,
+      "living": 8000,
+      "total": 20000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u57",
+    "name": "UC Berkeley",
+    "website": "https://www.berkeley.edu",
+    "country": "United States",
+    "state": "California",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Data Science", "Machine Learning", "Statistics"],
+    "rankingTier": "Top10",
+    "academicRequirements": {
+      "gpaMin": 3.6,
+      "gpaCompetitive": 3.9
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "minQuant": 165,
+        "minVerbal": 160,
+        "minTotal": 325
+      },
+      "gmat": {
+        "required": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 45000,
+      "living": 24000,
+      "total": 69000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Very High"
+    }
+  },
+  {
+    "id": "u60",
+    "name": "Johns Hopkins University",
+    "website": "https://www.jhu.edu",
+    "country": "United States",
+    "state": "Maryland",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Biomedical Engineering", "Public Health", "Epidemiology"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.5,
+      "gpaCompetitive": 3.8
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "minQuant": 160,
+        "minVerbal": 155,
+        "minTotal": 315
+      },
+      "gmat": {
+        "required": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 58000,
+      "living": 22000,
+      "total": 80000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u62",
+    "name": "University of Delhi",
+    "website": "https://www.du.ac.in",
+    "country": "India",
+    "state": "Delhi",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Life Sciences", "Environmental Science", "Biotechnology"],
+    "rankingTier": "Top300",
+    "academicRequirements": {
+      "gpaMin": 2.5,
+      "gpaCompetitive": 3.0
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": false,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 75
+      },
+      "gre": {
+        "required": false,
+        "recommended": false
+      },
+      "gmat": {
+        "required": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 3000,
+      "living": 5000,
+      "total": 8000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u63",
+    "name": "Harvard Law School",
+    "website": "https://hls.harvard.edu",
+    "country": "United States",
+    "state": "Massachusetts",
+    "degreesOffered": ["LL.M", "Masters"],
+    "fields": ["International Law", "Corporate Law", "Human Rights"],
+    "rankingTier": "Top10",
+    "academicRequirements": {
+      "gpaMin": 3.6,
+      "gpaCompetitive": 3.9
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": false
+      },
+      "gmat": {
+        "required": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 65000,
+      "living": 24000,
+      "total": 89000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Very High"
+    }
+  },
+  {
+    "id": "u65",
+    "name": "Symbiosis Law School",
+    "website": "https://www.symlaw.ac.in",
+    "country": "India",
+    "state": "Pune",
+    "degreesOffered": ["Masters", "LL.M"],
+    "fields": ["Corporate Law", "International Law", "Business Law"],
+    "rankingTier": "Top500",
+    "academicRequirements": {
+      "gpaMin": 2.5,
+      "gpaCompetitive": 3.0
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": false,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 75
+      },
+      "gre": {
+        "required": false,
+        "recommended": false
+      },
+      "gmat": {
+        "required": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 5000,
+      "living": 6000,
+      "total": 11000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u66",
+    "name": "University of Hong Kong",
+    "website": "https://www.hku.hk",
+    "country": "Hong Kong",
+    "state": "Hong Kong",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Business"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 22000,
+      "living": 14000,
+      "total": 36000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u67",
+    "name": "University of Auckland",
+    "website": "https://www.auckland.ac.nz",
+    "country": "New Zealand",
+    "state": "Auckland",
+    "degreesOffered": ["Masters", "PhD", "Bachelors"],
+    "fields": ["Computer Science", "Data Science", "Software Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 32000,
+      "living": 18000,
+      "total": 50000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u68",
+    "name": "Barcelona School of Economics",
+    "website": "https://www.bse.eu",
+    "country": "Spain",
+    "state": "Catalonia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Economics", "Data Science", "Finance"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 155,
+        "minTotal": 315
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 18000,
+      "living": 12000,
+      "total": 30000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u69",
+    "name": "KU Leuven",
+    "website": "https://www.kuleuven.be",
+    "country": "Belgium",
+    "state": "Flanders",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Artificial Intelligence", "Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 94
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 6500,
+      "living": 12000,
+      "total": 18500
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u70",
+    "name": "University of Oslo",
+    "website": "https://www.uio.no",
+    "country": "Norway",
+    "state": "Oslo",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Machine Learning"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 0,
+      "living": 18000,
+      "total": 18000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u71",
+    "name": "Aalto University",
+    "website": "https://www.aalto.fi",
+    "country": "Finland",
+    "state": "Uusimaa",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top150",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 15000,
+      "living": 12000,
+      "total": 27000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u72",
+    "name": "University of Copenhagen",
+    "website": "https://www.ku.dk",
+    "country": "Denmark",
+    "state": "Capital Region",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Economics"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 83
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 0,
+      "living": 16000,
+      "total": 16000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u73",
+    "name": "Politecnico di Milano",
+    "website": "https://www.polimi.it",
+    "country": "Italy",
+    "state": "Lombardy",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Software Engineering", "Data Science"],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.2
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 78
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 4000,
+      "living": 14000,
+      "total": 18000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u74",
+    "name": "University of Bristol",
+    "website": "https://www.bristol.ac.uk",
+    "country": "United Kingdom",
+    "state": "England",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 28000,
+      "living": 15000,
+      "total": 43000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u75",
+    "name": "University of Warwick",
+    "website": "https://www.warwick.ac.uk",
+    "country": "United Kingdom",
+    "state": "England",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Business"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 26000,
+      "living": 14000,
+      "total": 40000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u76",
+    "name": "Rice University",
+    "website": "https://www.rice.edu",
+    "country": "United States",
+    "state": "Texas",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top20",
+    "academicRequirements": {
+      "gpaMin": 3.4,
+      "gpaCompetitive": 3.7
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 162,
+        "minVerbal": 158,
+        "minTotal": 320
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 52000,
+      "living": 18000,
+      "total": 70000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u77",
+    "name": "Ohio State University",
+    "website": "https://www.osu.edu",
+    "country": "United States",
+    "state": "Ohio",
+    "degreesOffered": ["Masters", "PhD", "Bachelors"],
+    "fields": ["Computer Science", "Data Science", "Software Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 35000,
+      "living": 14000,
+      "total": 49000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u78",
+    "name": "Penn State University",
+    "website": "https://www.psu.edu",
+    "country": "United States",
+    "state": "Pennsylvania",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Software Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 38000,
+      "living": 15000,
+      "total": 53000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u79",
+    "name": "University of Florida",
+    "website": "https://www.ufl.edu",
+    "country": "United States",
+    "state": "Florida",
+    "degreesOffered": ["Masters", "PhD", "Bachelors"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 30000,
+      "living": 14000,
+      "total": 44000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u80",
+    "name": "Texas A&M University",
+    "website": "https://www.tamu.edu",
+    "country": "United States",
+    "state": "Texas",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 28000,
+      "living": 12000,
+      "total": 40000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u81",
+    "name": "University of Virginia",
+    "website": "https://www.virginia.edu",
+    "country": "United States",
+    "state": "Virginia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Business"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 155,
+        "minTotal": 315
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 52000,
+      "living": 15000,
+      "total": 67000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u82",
+    "name": "University of North Carolina at Chapel Hill",
+    "website": "https://www.unc.edu",
+    "country": "United States",
+    "state": "North Carolina",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Business"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 32000,
+      "living": 14000,
+      "total": 46000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u83",
+    "name": "Simon Fraser University",
+    "website": "https://www.sfu.ca",
+    "country": "Canada",
+    "state": "British Columbia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Software Engineering"],
+    "rankingTier": "Top300",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 88
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 12000,
+      "living": 16000,
+      "total": 28000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u84",
+    "name": "University of Alberta",
+    "website": "https://www.ualberta.ca",
+    "country": "Canada",
+    "state": "Alberta",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Artificial Intelligence", "Data Science"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 12000,
+      "living": 14000,
+      "total": 26000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u85",
+    "name": "Monash University",
+    "website": "https://www.monash.edu",
+    "country": "Australia",
+    "state": "Victoria",
+    "degreesOffered": ["Masters", "PhD", "Bachelors"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.7,
+      "gpaCompetitive": 3.2
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 42000,
+      "living": 18000,
+      "total": 60000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u86",
+    "name": "University of Western Australia",
+    "website": "https://www.uwa.edu.au",
+    "country": "Australia",
+    "state": "Western Australia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 82
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 38000,
+      "living": 17000,
+      "total": 55000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u87",
+    "name": "National Taiwan University",
+    "website": "https://www.ntu.edu.tw",
+    "country": "Taiwan",
+    "state": "Taipei",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 6000,
+      "living": 10000,
+      "total": 16000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u88",
+    "name": "Hong Kong University of Science and Technology",
+    "website": "https://www.hkust.edu.hk",
+    "country": "Hong Kong",
+    "state": "Hong Kong",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Business"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 155,
+        "minTotal": 315
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 20000,
+      "living": 12000,
+      "total": 32000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u89",
+    "name": "Erasmus University Rotterdam",
+    "website": "https://www.eur.nl",
+    "country": "Netherlands",
+    "state": "South Holland",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Economics", "Business", "Data Science"],
+    "rankingTier": "Top150",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 158,
+        "minVerbal": 153,
+        "minTotal": 311
+      },
+      "gmat": {
+        "required": false,
+        "recommended": true,
+        "minScore": 600
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 15000,
+      "living": 14000,
+      "total": 29000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u90",
+    "name": "University of Zurich",
+    "website": "https://www.uzh.ch",
+    "country": "Switzerland",
+    "state": "Zurich",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Economics", "Data Science", "Finance"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 1500,
+      "living": 22000,
+      "total": 23500
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Very High"
+    }
+  },
+  {
+    "id": "u91",
+    "name": "TU Berlin",
+    "website": "https://www.tu-berlin.de",
+    "country": "Germany",
+    "state": "Berlin",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Software Engineering"],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 0,
+      "living": 12000,
+      "total": 12000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u92",
+    "name": "University of Stuttgart",
+    "website": "https://www.uni-stuttgart.de",
+    "country": "Germany",
+    "state": "Baden-Württemberg",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Software Engineering", "Data Science"],
+    "rankingTier": "Top300",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 0,
+      "living": 11000,
+      "total": 11000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u93",
+    "name": "University of Science and Technology of China",
+    "website": "https://en.ustc.edu.cn",
+    "country": "China",
+    "state": "Anhui",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Artificial Intelligence", "Data Science"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 85
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 5000,
+      "living": 6000,
+      "total": 11000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u94",
+    "name": "Shanghai Jiao Tong University",
+    "website": "https://en.sjtu.edu.cn",
+    "country": "China",
+    "state": "Shanghai",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 7000,
+      "living": 8000,
+      "total": 15000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u95",
+    "name": "University of Warsaw",
+    "website": "https://www.uw.edu.pl",
+    "country": "Poland",
+    "state": "Mazovia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Mathematics"],
+    "rankingTier": "Top300",
+    "academicRequirements": {
+      "gpaMin": 2.7,
+      "gpaCompetitive": 3.2
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 72
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 3000,
+      "living": 9000,
+      "total": 12000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "Medium"
+    }
+  },
+  {
+    "id": "u96",
+    "name": "Vanderbilt University",
+    "website": "https://www.vanderbilt.edu",
+    "country": "United States",
+    "state": "Tennessee",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Business"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": true,
+        "recommended": true,
+        "minQuant": 160,
+        "minVerbal": 158,
+        "minTotal": 318
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 56000,
+      "living": 16000,
+      "total": 72000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u97",
+    "name": "Emory University",
+    "website": "https://www.emory.edu",
+    "country": "United States",
+    "state": "Georgia",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Business"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 54000,
+      "living": 17000,
+      "total": 71000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u98",
+    "name": "Case Western Reserve University",
+    "website": "https://case.edu",
+    "country": "United States",
+    "state": "Ohio",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Engineering"],
+    "rankingTier": "Top150",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 48000,
+      "living": 15000,
+      "total": 63000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u99",
+    "name": "Rutgers University",
+    "website": "https://www.rutgers.edu",
+    "country": "United States",
+    "state": "New Jersey",
+    "degreesOffered": ["Masters", "PhD", "Bachelors"],
+    "fields": ["Computer Science", "Data Science", "Software Engineering"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 32000,
+      "living": 16000,
+      "total": 48000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u100",
+    "name": "University of Arizona",
+    "website": "https://www.arizona.edu",
+    "country": "United States",
+    "state": "Arizona",
+    "degreesOffered": ["Masters", "PhD", "Bachelors"],
+    "fields": ["Computer Science", "Data Science", "Cybersecurity"],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 2.7,
+      "gpaCompetitive": 3.2
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 33000,
+      "living": 14000,
+      "total": 47000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Low",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u101",
+    "name": "University of Manchester",
+    "website": "https://www.manchester.ac.uk",
+    "country": "United Kingdom",
+    "state": "England",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 28000,
+      "living": 14000,
+      "total": 42000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u102",
+    "name": "King's College London",
+    "website": "https://www.kcl.ac.uk",
+    "country": "United Kingdom",
+    "state": "England",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top50",
+    "academicRequirements": {
+      "gpaMin": 3.2,
+      "gpaCompetitive": 3.6
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 32000,
+      "living": 18000,
+      "total": 50000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Very High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u103",
+    "name": "ESSEC Business School",
+    "website": "https://www.essec.edu",
+    "country": "France",
+    "state": "Île-de-France",
+    "degreesOffered": ["Masters", "MBA"],
+    "fields": ["Business", "Management", "Finance"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 95
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": true,
+        "minScore": 650
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 45000,
+      "living": 18000,
+      "total": 63000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u104",
+    "name": "IE Business School",
+    "website": "https://www.ie.edu",
+    "country": "Spain",
+    "state": "Madrid",
+    "degreesOffered": ["Masters", "MBA"],
+    "fields": ["Business", "Management", "Finance"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 7.0
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 100
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": true,
+        "minScore": 640
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 52000,
+      "living": 15000,
+      "total": 67000
+    },
+    "budgetTier": "High",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u105",
+    "name": "Maastricht University",
+    "website": "https://www.maastrichtuniversity.nl",
+    "country": "Netherlands",
+    "state": "Limburg",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Data Science", "Economics", "Business"],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 2.9,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 14000,
+      "living": 12000,
+      "total": 26000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u106",
+    "name": "University of Birmingham",
+    "website": "https://www.birmingham.ac.uk",
+    "country": "United Kingdom",
+    "state": "England",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Economics"],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.4
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 88
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 25000,
+      "living": 14000,
+      "total": 39000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u107",
+    "name": "University of Leeds",
+    "website": "https://www.leeds.ac.uk",
+    "country": "United Kingdom",
+    "state": "England",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Software Engineering"],
+    "rankingTier": "Top150",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 87
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 24000,
+      "living": 13000,
+      "total": 37000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u108",
+    "name": "Queen Mary University of London",
+    "website": "https://www.qmul.ac.uk",
+    "country": "United Kingdom",
+    "state": "England",
+    "degreesOffered": ["Masters", "PhD"],
+    "fields": ["Computer Science", "Data Science", "Artificial Intelligence"],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 92
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 22000,
+      "living": 16000,
+      "total": 38000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u109",
+    "name": "IIT Delhi",
+    "website": "https://www.iitd.ac.in",
+    "country": "India",
+    "state": "Delhi",
+    "degreesOffered": ["Masters", "PhD", "MTech"],
+    "fields": [
+      "Computer Science",
+      "Data Science",
+      "Artificial Intelligence",
+      "Software Engineering"
+    ],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": false,
+        "minScore": 6.0
+      },
+      "toefl": {
+        "required": false,
+        "minScore": 79
+      },
+      "gre": {
+        "required": false,
+        "recommended": true,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 5000,
+      "living": 5000,
+      "total": 10000
+    },
+    "budgetTier": "Low",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Low",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u110",
+    "name": "Leiden University",
+    "website": "https://www.universiteitleiden.nl",
+    "country": "Netherlands",
+    "state": "South Holland",
+    "degreesOffered": ["Masters", "PhD", "LL.M"],
+    "fields": [
+      "International Law",
+      "Corporate Law",
+      "Public International Law",
+      "European Law"
+    ],
+    "rankingTier": "Top100",
+    "academicRequirements": {
+      "gpaMin": 3.0,
+      "gpaCompetitive": 3.5
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 90
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 18000,
+      "living": 12000,
+      "total": 30000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "High",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  },
+  {
+    "id": "u111",
+    "name": "University of Utah",
+    "website": "https://www.utah.edu",
+    "country": "United States",
+    "state": "Utah",
+    "degreesOffered": ["Bachelors", "Masters", "PhD"],
+    "fields": [
+      "Computer Science",
+      "Data Science",
+      "Software Engineering",
+      "Engineering"
+    ],
+    "rankingTier": "Top200",
+    "academicRequirements": {
+      "gpaMin": 2.8,
+      "gpaCompetitive": 3.3
+    },
+    "examRequirements": {
+      "ielts": {
+        "required": true,
+        "minScore": 6.5
+      },
+      "toefl": {
+        "required": true,
+        "minScore": 80
+      },
+      "gre": {
+        "required": false,
+        "recommended": false,
+        "minQuant": null,
+        "minVerbal": null,
+        "minTotal": null
+      },
+      "gmat": {
+        "required": false,
+        "recommended": false,
+        "minScore": null
+      }
+    },
+    "estimatedAnnualCostUSD": {
+      "tuition": 28000,
+      "living": 14000,
+      "total": 42000
+    },
+    "budgetTier": "Medium",
+    "acceptanceDifficulty": "Medium",
+    "intakeYears": [2026, 2027, 2028],
+    "meta": {
+      "visaDifficulty": "Medium",
+      "workOpportunities": "High"
+    }
+  }
+]

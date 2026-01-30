@@ -1,14 +1,15 @@
 import { FormSelect, FormLabel } from "../FormComponents";
 
 export default function StepThree({ formData, updateFormData }) {
+  // Ranges must be parseable by backend (max extracted from "X - Y"); covers university cost range ~$8k–$175k
   const budgetOptions = [
-    "Under $10,000",
-    "$10,000 - $20,000",
-    "$20,000 - $30,000",
-    "$30,000 - $50,000",
-    "$50,000 - $70,000",
-    "$70,000 - $100,000",
-    "Above $100,000",
+    "$8,000 - $15,000",
+    "$15,000 - $25,000",
+    "$25,000 - $40,000",
+    "$40,000 - $60,000",
+    "$60,000 - $80,000",
+    "$80,000 - $120,000",
+    "$120,000 - $180,000",
     "Not Sure / Flexible",
   ];
 
@@ -36,7 +37,7 @@ export default function StepThree({ formData, updateFormData }) {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <FormSelect
         label="Budget Range Per Year"
         value={formData.budget_range}
@@ -49,11 +50,11 @@ export default function StepThree({ formData, updateFormData }) {
 
       <div>
         <FormLabel required>Funding Plan</FormLabel>
-        <div className="space-y-3">
+        <div className="space-y-2">
           {fundingOptions.map((option) => (
             <label
               key={option.value}
-              className={`flex cursor-pointer items-start rounded-lg border-2 p-4 transition ${
+              className={`flex cursor-pointer items-start rounded-lg border-2 p-3 transition sm:p-4 ${
                 formData.funding_plan === option.value
                   ? "border-purple-600 bg-purple-50 dark:border-purple-500 dark:bg-purple-950/30"
                   : "border-zinc-200 bg-zinc-50 hover:border-purple-400 dark:border-zinc-700 dark:bg-zinc-900"
@@ -68,8 +69,12 @@ export default function StepThree({ formData, updateFormData }) {
                 className="mt-1 h-4 w-4 cursor-pointer accent-purple-600"
               />
               <div className="ml-3">
-                <p className="font-medium text-zinc-900 dark:text-zinc-100">{option.title}</p>
-                <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">{option.description}</p>
+                <p className="font-medium text-zinc-900 dark:text-zinc-100">
+                  {option.title}
+                </p>
+                <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">
+                  {option.description}
+                </p>
               </div>
             </label>
           ))}

@@ -17,6 +17,20 @@ DATABASE_URL = os.getenv(
     "DATABASE_URL",
     "postgresql://user:password@localhost:5432/hackathon"
 )
+
+# Required API keys
 CLERK_SECRET_KEY = os.getenv("CLERK_SECRET_KEY")
+if not CLERK_SECRET_KEY:
+    raise ValueError(
+        "CLERK_SECRET_KEY environment variable is required. "
+        "Please set it in your .env file or environment."
+    )
+
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    raise ValueError(
+        "GEMINI_API_KEY environment variable is required. "
+        "Please set it in your .env file or environment."
+    )
+
 FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:3000")

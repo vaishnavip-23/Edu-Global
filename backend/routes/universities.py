@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from typing import List, Optional
 from backend.database import get_db
-from backend.models import User, Onboarding, Shortlist
+from backend.models import User, Onboarding, Shortlist, Todo
 from backend.services.university_service import university_service
 from backend.auth import get_current_user
 import logging
@@ -10,6 +11,12 @@ import logging
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/universities", tags=["universities"])
+
+
+class ShortlistRequest(BaseModel):
+    """Request body for adding to shortlist"""
+    match_score: Optional[int] = 0
+    category: Optional[str] = "Target"
 
 
 @router.get("/all")
@@ -44,6 +51,13 @@ async def get_recommended_universities(
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
 
+        # STRICT: Check onboarding completion
+        if not user.onboarding_complete:
+            raise HTTPException(
+                status_code=403,
+                detail="Onboarding not complete. Please complete onboarding first."
+            )
+
         # Get onboarding data
         onboarding = db.query(Onboarding).filter(Onboarding.user_id == user.id).first()
         if not onboarding:
@@ -67,21 +81,46 @@ async def get_recommended_universities(
             try:
                 budget_str = onboarding.budget_range.split("-")[-1].strip()
                 budget_max = float(budget_str.replace("$", "").replace(",", ""))
-            except:
+            except (ValueError, AttributeError, IndexError) as e:
+                logger.warning(f"Could not parse budget range: {onboarding.budget_range}, error: {e}")
                 budget_max = None
 
-        # Parse GPA
+        # Parse GPA - handle string ranges like "Above 3.7 / 90%+"
         user_gpa = None
-        if onboarding.gpa:
+        if onboarding.gpa and onboarding.gpa != "Not Applicable":
             try:
-                user_gpa = float(onboarding.gpa)
-            except:
+                # Try to extract numeric value from string
+                if isinstance(onboarding.gpa, str):
+                    # Handle ranges like "Above 3.7 / 90%+" or "3.5 - 3.7 / 85-90%"
+                    import re
+                    numbers = re.findall(r'\d+\.?\d*', onboarding.gpa)
+                    if numbers:
+                        # Take the first number as representative GPA
+                        user_gpa = float(numbers[0])
+                else:
+                    user_gpa = float(onboarding.gpa)
+            except (ValueError, TypeError, AttributeError) as e:
+                logger.warning(f"Could not parse GPA: {onboarding.gpa}, error: {e}")
                 user_gpa = None
 
-        # Get GRE/GMAT scores from status if available
-        # For now, we'll skip this unless you want to add score fields
+        # Extract exam scores from onboarding
         user_gre = None
         user_gmat = None
+        user_ielts = None
+        user_toefl = None
+
+        # GRE: Calculate combined score if both sections available
+        if onboarding.gre_quant_score and onboarding.gre_verbal_score:
+            user_gre = onboarding.gre_quant_score + onboarding.gre_verbal_score
+
+        if onboarding.gmat_score:
+            user_gmat = onboarding.gmat_score
+
+        if onboarding.ielts_score:
+            user_ielts = onboarding.ielts_score
+
+        if onboarding.toefl_score:
+            user_toefl = onboarding.toefl_score
 
         # Get recommendations
         recommendations = university_service.get_recommended_universities(
@@ -93,6 +132,8 @@ async def get_recommended_universities(
             user_gpa=user_gpa,
             user_gre=user_gre,
             user_gmat=user_gmat,
+            user_ielts=user_ielts,
+            user_toefl=user_toefl,
         )
 
         # Get user's shortlisted universities
@@ -165,6 +206,7 @@ async def get_university_details(
 @router.post("/shortlist/{university_id}")
 async def add_to_shortlist(
     university_id: str,
+    request: ShortlistRequest,
     db: Session = Depends(get_db),
     current_user: dict = Depends(get_current_user),
 ):
@@ -202,11 +244,21 @@ async def add_to_shortlist(
             db.add(user)
 
         # Add to shortlist
+        # Use match_score and category from request, or fall back to defaults
+        match_score = request.match_score if request.match_score is not None else 0
+        category = request.category if request.category else university.get("category", "Target")
+        
+        # Ensure match_score is an integer
+        try:
+            match_score = int(match_score)
+        except (ValueError, TypeError):
+            match_score = 0
+
         shortlist = Shortlist(
             user_id=user.id,
             university_id=university_id,
-            category=university.get("category", "Target"),
-            match_score=university.get("match_score", 0),
+            category=category,
+            match_score=match_score,
             locked=False
         )
         db.add(shortlist)
@@ -295,6 +347,13 @@ async def get_my_shortlist(
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
 
+        # STRICT: Check onboarding completion
+        if not user.onboarding_complete:
+            raise HTTPException(
+                status_code=403,
+                detail="Onboarding not complete. Please complete onboarding first."
+            )
+
         # Get shortlist
         shortlist_entries = db.query(Shortlist).filter(
             Shortlist.user_id == user.id
@@ -309,6 +368,11 @@ async def get_my_shortlist(
                 uni["is_locked"] = entry.locked
                 uni["shortlist_id"] = entry.id
                 uni["shortlisted_at"] = entry.created_at.isoformat()
+                # Preserve match_score and category from Shortlist table
+                if entry.match_score is not None:
+                    uni["match_score"] = entry.match_score
+                if entry.category:
+                    uni["category"] = entry.category
                 shortlisted_universities.append(uni)
 
         return {
@@ -357,13 +421,107 @@ async def lock_university(
         if user.current_stage < 4:
             user.current_stage = 4
             db.add(user)
+
+        # Auto-generate application todos for this university
+        university = university_service.get_university_by_id(university_id)
+        uni_name = university.get("university_name") if university else university_id
+
+        existing_todos = db.query(Todo).filter(
+            Todo.user_id == user.id,
+            Todo.university_id == university_id
+        ).count()
+
+        tasks_created = 0
+        if existing_todos == 0:
+            # Get exam requirements
+            exam_reqs = university.get("examRequirements", {}) if university else {}
+
+            todos_to_create = [
+                {
+                    "title": f"Complete Statement of Purpose (SOP) for {uni_name}",
+                    "description": "Write a compelling SOP highlighting your goals, background, and why this university is the right fit for you.",
+                    "priority": "high",
+                    "category": "documents",
+                },
+                {
+                    "title": f"Secure 2-3 Letters of Recommendation (LOR)",
+                    "description": "Request LORs from professors or employers who know your work well. Give them at least 2-4 weeks notice.",
+                    "priority": "high",
+                    "category": "documents",
+                },
+                {
+                    "title": f"Prepare official transcripts",
+                    "description": "Request official transcripts from your current/previous universities. Some institutions may take 2-3 weeks to process.",
+                    "priority": "high",
+                    "category": "documents",
+                },
+                {
+                    "title": f"Complete application form for {uni_name}",
+                    "description": "Fill out the online application form with accurate information. Save drafts regularly.",
+                    "priority": "high",
+                    "category": "application",
+                },
+                {
+                    "title": f"Prepare financial documents",
+                    "description": "Gather bank statements, sponsor letters, or scholarship documents to prove financial capability.",
+                    "priority": "medium",
+                    "category": "documents",
+                },
+            ]
+
+            # Add exam-specific todos
+            if exam_reqs.get("ielts", {}).get("required") or exam_reqs.get("toefl", {}).get("required"):
+                ielts_min = exam_reqs.get("ielts", {}).get("minScore", 6.5)
+                toefl_min = exam_reqs.get("toefl", {}).get("minScore", 90)
+                todos_to_create.append({
+                    "title": f"Take English proficiency test (IELTS {ielts_min}+ or TOEFL {toefl_min}+)",
+                    "description": "Schedule and take IELTS or TOEFL exam. Results typically available in 2 weeks.",
+                    "priority": "high",
+                    "category": "exam",
+                })
+
+            if exam_reqs.get("gre", {}).get("required"):
+                gre_min = exam_reqs.get("gre", {}).get("minTotal", 310)
+                todos_to_create.append({
+                    "title": f"Take GRE exam (target: {gre_min}+)",
+                    "description": "Prepare for and take the GRE exam. Allow 2-3 months for preparation.",
+                    "priority": "high",
+                    "category": "exam",
+                })
+
+            if exam_reqs.get("gmat", {}).get("required"):
+                gmat_min = exam_reqs.get("gmat", {}).get("minScore", 650)
+                todos_to_create.append({
+                    "title": f"Take GMAT exam (target: {gmat_min}+)",
+                    "description": "Prepare for and take the GMAT exam. Allow 2-3 months for preparation.",
+                    "priority": "high",
+                    "category": "exam",
+                })
+
+            # Create todos
+            for todo_data in todos_to_create:
+                todo = Todo(
+                    user_id=user.id,
+                    university_id=university_id,
+                    title=todo_data["title"],
+                    description=todo_data["description"],
+                    priority=todo_data["priority"],
+                    category=todo_data["category"],
+                    stage=4,
+                    status="pending",
+                )
+                db.add(todo)
+
+            tasks_created = len(todos_to_create)
+
         db.commit()
 
-        logger.info(f"User {user.id} locked university {university_id}")
+        logger.info(f"User {user.id} locked university {university_id}. {tasks_created} tasks created.")
 
         return {
             "status": "success",
-            "message": "University locked successfully"
+            "message": f"University locked successfully. {tasks_created} application tasks created.",
+            "tasks_created": tasks_created
         }
 
     except HTTPException:

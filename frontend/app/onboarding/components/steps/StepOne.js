@@ -13,33 +13,31 @@ export default function StepOne({ formData, updateFormData }) {
     "PhD - Completed",
   ];
 
+  // Majors aligned with fields present in universities (current background)
   const majors = [
     "Computer Science",
-    "Information Technology",
     "Data Science",
+    "Software Engineering",
+    "Information Technology",
+    "Engineering",
     "Business Administration",
+    "Business",
     "Management",
     "Finance",
-    "Accounting",
     "Economics",
-    "Marketing",
-    "Engineering - Mechanical",
-    "Engineering - Electrical",
-    "Engineering - Civil",
-    "Engineering - Chemical",
-    "Medicine / Healthcare",
-    "Pharmacy",
     "Law",
-    "Psychology",
-    "Biology",
-    "Chemistry",
-    "Physics",
     "Mathematics",
-    "Arts / Humanities",
+    "Life Sciences",
+    "Biotechnology",
+    "Environmental Science",
+    "Public Health",
+    "Statistics",
     { value: "other", label: "Other (Specify below)" },
   ];
 
-  const graduationYears = Array.from({ length: 11 }, (_, i) => String(2020 + i));
+  const graduationYears = Array.from({ length: 11 }, (_, i) =>
+    String(2020 + i),
+  );
 
   const gpaOptions = [
     "Not Applicable",
@@ -52,7 +50,7 @@ export default function StepOne({ formData, updateFormData }) {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <FormSelect
         label="Current Education Level"
         value={formData.education_level}

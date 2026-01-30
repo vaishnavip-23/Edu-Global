@@ -42,26 +42,40 @@ export function OnboardingForm() {
     gre_status: "",
     gmat_status: "",
     sop_status: "",
+
+    // Exam Scores
+    ielts_score: "",
+    toefl_score: "",
+    gre_quant_score: "",
+    gre_verbal_score: "",
+    gre_awa_score: "",
+    gmat_score: "",
   });
 
   const fetchExistingData = useCallback(async () => {
     try {
+      const token = await getToken();
+
+      if (!token) {
+        console.warn("No authentication token available");
+        setLoadingData(false);
+        return;
+      }
+
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-      const response = await fetch(
-        `${apiUrl}/api/onboarding/${user.id}`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/onboarding/${user.id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (response.ok) {
         const data = await response.json();
 
         // Parse preferred_countries back to array
         const countries = data.preferred_countries
-          ? data.preferred_countries.split(", ").filter(c => c)
+          ? data.preferred_countries.split(", ").filter((c) => c)
           : [];
 
         // Populate form with existing data
@@ -69,11 +83,15 @@ export function OnboardingForm() {
           education_level: data.education_level || "",
           degree_major: data.degree_major || "",
           major_other: "",
-          graduation_year: data.graduation_year ? String(data.graduation_year) : "",
+          graduation_year: data.graduation_year
+            ? String(data.graduation_year)
+            : "",
           gpa: data.gpa || "",
           target_degree: data.target_degree || "",
           field_of_study: data.field_of_study || "",
-          target_intake_year: data.target_intake_year ? `Fall ${data.target_intake_year}` : "",
+          target_intake_year: data.target_intake_year
+            ? `Fall ${data.target_intake_year}`
+            : "",
           preferred_countries: countries,
           budget_range: data.budget_range || "",
           funding_plan: data.funding_plan || "",
@@ -82,6 +100,17 @@ export function OnboardingForm() {
           gre_status: data.gre_status || "",
           gmat_status: data.gmat_status || "",
           sop_status: data.sop_status || "",
+          // Exam Scores
+          ielts_score: data.ielts_score ? String(data.ielts_score) : "",
+          toefl_score: data.toefl_score ? String(data.toefl_score) : "",
+          gre_quant_score: data.gre_quant_score
+            ? String(data.gre_quant_score)
+            : "",
+          gre_verbal_score: data.gre_verbal_score
+            ? String(data.gre_verbal_score)
+            : "",
+          gre_awa_score: data.gre_awa_score ? String(data.gre_awa_score) : "",
+          gmat_score: data.gmat_score ? String(data.gmat_score) : "",
         });
 
         // Calculate which step to start from
@@ -104,12 +133,16 @@ export function OnboardingForm() {
 
   const calculateStartStep = (data) => {
     // Check Step 1 completion
-    const step1Complete = data.education_level && data.degree_major && data.graduation_year;
+    const step1Complete =
+      data.education_level && data.degree_major && data.graduation_year;
     if (!step1Complete) return 1;
 
     // Check Step 2 completion
-    const step2Complete = data.target_degree && data.field_of_study &&
-                          data.target_intake_year && data.preferred_countries;
+    const step2Complete =
+      data.target_degree &&
+      data.field_of_study &&
+      data.target_intake_year &&
+      data.preferred_countries;
     if (!step2Complete) return 2;
 
     // Check Step 3 completion
@@ -117,7 +150,8 @@ export function OnboardingForm() {
     if (!step3Complete) return 3;
 
     // Check Step 4 completion
-    const step4Complete = data.ielts_status && data.gre_status && data.sop_status;
+    const step4Complete =
+      data.ielts_status && data.gre_status && data.sop_status;
     if (!step4Complete) return 4;
 
     // All steps complete, start from step 1 (shouldn't reach here normally)
@@ -133,51 +167,55 @@ export function OnboardingForm() {
 
   const validateStep = (step) => {
     setError(null);
+    const missingFields = [];
 
     if (step === 1) {
-      if (
-        !formData.education_level ||
-        !formData.degree_major ||
-        !formData.graduation_year
-      ) {
-        setError("Please fill in all required fields");
+      if (!formData.education_level) missingFields.push("Education level");
+      if (!formData.degree_major) missingFields.push("Degree/Major");
+      if (!formData.graduation_year) missingFields.push("Graduation year");
+
+      if (missingFields.length > 0) {
+        setError(`Please fill in: ${missingFields.join(", ")}`);
         return false;
       }
-      if (
-        formData.degree_major === "other" &&
-        !formData.major_other.trim()
-      ) {
+
+      if (formData.degree_major === "other" && !formData.major_other.trim()) {
         setError("Please specify your degree/major");
         return false;
       }
     }
 
     if (step === 2) {
-      if (
-        !formData.target_degree ||
-        !formData.field_of_study ||
-        !formData.target_intake_year ||
-        formData.preferred_countries.length === 0
-      ) {
-        setError("Please fill in all required fields");
+      if (!formData.target_degree) missingFields.push("Target degree");
+      if (!formData.field_of_study) missingFields.push("Field of study");
+      if (!formData.target_intake_year)
+        missingFields.push("Target intake year");
+      if (formData.preferred_countries.length === 0)
+        missingFields.push("Preferred countries");
+
+      if (missingFields.length > 0) {
+        setError(`Please fill in: ${missingFields.join(", ")}`);
         return false;
       }
     }
 
     if (step === 3) {
-      if (!formData.budget_range || !formData.funding_plan) {
-        setError("Please fill in all required fields");
+      if (!formData.budget_range) missingFields.push("Budget range");
+      if (!formData.funding_plan) missingFields.push("Funding plan");
+
+      if (missingFields.length > 0) {
+        setError(`Please fill in: ${missingFields.join(", ")}`);
         return false;
       }
     }
 
     if (step === 4) {
-      if (
-        !formData.ielts_status ||
-        !formData.gre_status ||
-        !formData.sop_status
-      ) {
-        setError("Please fill in all required fields");
+      if (!formData.ielts_status) missingFields.push("IELTS/TOEFL status");
+      if (!formData.gre_status) missingFields.push("GRE/GMAT status");
+      if (!formData.sop_status) missingFields.push("SOP status");
+
+      if (missingFields.length > 0) {
+        setError(`Please fill in: ${missingFields.join(", ")}`);
         return false;
       }
     }
@@ -190,7 +228,18 @@ export function OnboardingForm() {
     setError(null);
 
     try {
+      console.log("Attempting to get authentication token...");
       const token = await getToken();
+      console.log(
+        "Token retrieved:",
+        token ? `${token.substring(0, 20)}...` : "null/undefined",
+      );
+
+      if (!token) {
+        throw new Error(
+          "Failed to get authentication token. Please try signing in again.",
+        );
+      }
 
       // Prepare data for API
       const apiData = {
@@ -206,7 +255,10 @@ export function OnboardingForm() {
         target_degree: formData.target_degree || null,
         field_of_study: formData.field_of_study || null,
         target_intake_year: formData.target_intake_year || null,
-        preferred_countries: formData.preferred_countries.length > 0 ? formData.preferred_countries.join(", ") : null,
+        preferred_countries:
+          formData.preferred_countries.length > 0
+            ? formData.preferred_countries.join(", ")
+            : null,
         budget_range: formData.budget_range || null,
         funding_plan: formData.funding_plan || null,
         ielts_status: formData.ielts_status || null,
@@ -214,21 +266,35 @@ export function OnboardingForm() {
         gre_status: formData.gre_status || null,
         gmat_status: formData.gmat_status || null,
         sop_status: formData.sop_status || null,
+        // Exam Scores
+        ielts_score: formData.ielts_score
+          ? parseFloat(formData.ielts_score)
+          : null,
+        toefl_score: formData.toefl_score
+          ? parseInt(formData.toefl_score)
+          : null,
+        gre_quant_score: formData.gre_quant_score
+          ? parseInt(formData.gre_quant_score)
+          : null,
+        gre_verbal_score: formData.gre_verbal_score
+          ? parseInt(formData.gre_verbal_score)
+          : null,
+        gre_awa_score: formData.gre_awa_score
+          ? parseFloat(formData.gre_awa_score)
+          : null,
+        gmat_score: formData.gmat_score ? parseInt(formData.gmat_score) : null,
         is_final_submit: isFinalSubmit,
       };
 
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-      const response = await fetch(
-        `${apiUrl}/api/onboarding/submit`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(apiData),
-        }
-      );
+      const response = await fetch(`${apiUrl}/api/onboarding/submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(apiData),
+      });
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -249,14 +315,12 @@ export function OnboardingForm() {
       const saved = await saveStep();
       if (saved) {
         setCurrentStep((prev) => prev + 1);
-        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
   };
 
   const handleBack = () => {
     setCurrentStep((prev) => prev - 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleSubmit = async () => {
@@ -275,11 +339,11 @@ export function OnboardingForm() {
   // Show loading state while fetching existing data
   if (loadingData) {
     return (
-      <div className="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-zinc-100 dark:bg-zinc-950 dark:ring-zinc-800">
+      <div className="animate-scale-in rounded-2xl bg-white p-8 shadow-lg ring-1 ring-stone-100 dark:bg-stone-950 dark:ring-stone-800">
         <div className="flex items-center justify-center py-12">
           <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent"></div>
-            <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-orange-500 border-r-transparent"></div>
+            <p className="mt-4 text-sm text-stone-600 dark:text-stone-400">
               Loading your information...
             </p>
           </div>
@@ -291,14 +355,14 @@ export function OnboardingForm() {
   const progressPercentage = (currentStep / 4) * 100;
 
   return (
-    <div className="rounded-2xl bg-white p-8 shadow-lg ring-1 ring-zinc-100 dark:bg-zinc-950 dark:ring-zinc-800">
+    <div className="animate-scale-in flex min-h-0 flex-1 flex-col rounded-2xl bg-white p-6 shadow-lg ring-1 ring-stone-100 dark:bg-stone-950 dark:ring-stone-800 sm:p-6">
       <ProgressBar percentage={progressPercentage} />
 
-      <div className="mb-8">
-        <p className="text-sm font-semibold text-zinc-500 dark:text-zinc-400">
+      <div className="shrink-0 mb-4">
+        <p className="text-xs font-semibold text-stone-500 dark:text-stone-400 sm:text-sm">
           Step {currentStep} of 4
         </p>
-        <h1 className="mt-2 text-3xl font-bold text-zinc-900 dark:text-zinc-50">
+        <h1 className="mt-1 text-xl font-bold text-stone-900 dark:text-stone-50 sm:text-2xl">
           {currentStep === 1 && "Academic Background"}
           {currentStep === 2 && "Study Goal"}
           {currentStep === 3 && "Budget"}
@@ -307,31 +371,33 @@ export function OnboardingForm() {
       </div>
 
       {error && (
-        <div className="mb-6 rounded-lg bg-red-50 p-4 text-sm text-red-800 dark:bg-red-900/20 dark:text-red-200">
+        <div className="shrink-0 mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-800 dark:bg-red-900/20 dark:text-red-200">
           {error}
         </div>
       )}
 
-      {/* Steps */}
-      {currentStep === 1 && (
-        <StepOne formData={formData} updateFormData={updateFormData} />
-      )}
-      {currentStep === 2 && (
-        <StepTwo formData={formData} updateFormData={updateFormData} />
-      )}
-      {currentStep === 3 && (
-        <StepThree formData={formData} updateFormData={updateFormData} />
-      )}
-      {currentStep === 4 && (
-        <StepFour formData={formData} updateFormData={updateFormData} />
-      )}
+      {/* Step content — scrolls inside card when needed; scrollbar hidden for clean look */}
+      <div className="scrollbar-hide min-h-0 flex-1 overflow-y-auto -mx-1 px-1">
+        {currentStep === 1 && (
+          <StepOne formData={formData} updateFormData={updateFormData} />
+        )}
+        {currentStep === 2 && (
+          <StepTwo formData={formData} updateFormData={updateFormData} />
+        )}
+        {currentStep === 3 && (
+          <StepThree formData={formData} updateFormData={updateFormData} />
+        )}
+        {currentStep === 4 && (
+          <StepFour formData={formData} updateFormData={updateFormData} />
+        )}
+      </div>
 
-      {/* Buttons */}
-      <div className="mt-8 flex gap-4">
+      {/* Buttons — always visible at bottom */}
+      <div className="mt-6 shrink-0 flex gap-4">
         {currentStep > 1 && (
           <button
             onClick={handleBack}
-            className="flex-1 rounded-lg border-2 border-zinc-200 px-6 py-3 font-semibold text-zinc-900 shadow-sm transition-all duration-200 hover:bg-zinc-50 hover:border-zinc-300 hover:shadow-md active:scale-[0.98] dark:border-zinc-700 dark:text-zinc-100 dark:hover:bg-zinc-800"
+            className="flex-1 rounded-lg border-2 border-stone-200 px-6 py-3 font-semibold text-stone-900 shadow-sm transition-all duration-200 hover:bg-stone-50 hover:border-stone-300 hover:shadow-md active:scale-[0.98] dark:border-stone-700 dark:text-stone-100 dark:hover:bg-stone-800"
           >
             ← Back
           </button>
@@ -341,7 +407,7 @@ export function OnboardingForm() {
           <button
             onClick={handleNext}
             disabled={loading}
-            className="flex-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="flex-1 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-500/20 transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/25 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">
@@ -358,7 +424,7 @@ export function OnboardingForm() {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="flex-1 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 font-semibold text-white shadow-md transition-all duration-200 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="flex-1 rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 px-6 py-3 font-semibold text-white shadow-lg shadow-orange-500/20 transition-all duration-200 hover:shadow-xl hover:shadow-orange-500/25 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">

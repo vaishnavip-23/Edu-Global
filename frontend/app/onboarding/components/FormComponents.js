@@ -1,9 +1,9 @@
 // Reusable form components for onboarding forms
 
-export function FormLabel({ children, required = false }) {
+export function FormLabel({ children, required = false, htmlFor }) {
   return (
-    <label className="mb-2 block text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-      {children} {required && <span className="text-red-600">⭐</span>}
+    <label htmlFor={htmlFor} className="mb-2 block text-sm font-semibold text-stone-900 dark:text-stone-100">
+      {children} {required && <span className="text-red-600" aria-label="required">*</span>}
     </label>
   );
 }
@@ -15,7 +15,9 @@ export function FormSelect({ label, value, onChange, options, placeholder, requi
       <select
         value={value}
         onChange={onChange}
-        className="w-full rounded-lg border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 shadow-sm transition-all duration-200 focus:border-purple-500 focus:shadow-md focus:ring-2 focus:ring-purple-500/20 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:focus:border-purple-500"
+        required={required}
+        aria-required={required}
+        className="w-full rounded-lg border-2 border-stone-200 bg-white px-4 py-3 text-stone-900 shadow-sm transition-all duration-200 focus:border-orange-500 focus:shadow-md focus:ring-2 focus:ring-orange-500/20 focus:outline-none dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 dark:focus:border-orange-500"
       >
         <option value="">{placeholder}</option>
         {options.map((option) => {
@@ -29,13 +31,24 @@ export function FormSelect({ label, value, onChange, options, placeholder, requi
         })}
       </select>
       {helperText && (
-        <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400">{helperText}</p>
+        <p className="mt-1.5 text-xs text-stone-500 dark:text-stone-400">{helperText}</p>
       )}
     </div>
   );
 }
 
-export function FormInput({ label, value, onChange, placeholder, required = false, helperText, type = "text" }) {
+export function FormInput({
+  label,
+  value,
+  onChange,
+  placeholder,
+  required = false,
+  helperText,
+  type = "text",
+  min,
+  max,
+  step
+}) {
   return (
     <div>
       {label && <FormLabel required={required}>{label}</FormLabel>}
@@ -44,10 +57,15 @@ export function FormInput({ label, value, onChange, placeholder, required = fals
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className="w-full rounded-lg border-2 border-zinc-200 bg-white px-4 py-3 text-zinc-900 shadow-sm transition-all duration-200 placeholder:text-zinc-400 focus:border-purple-500 focus:shadow-md focus:ring-2 focus:ring-purple-500/20 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:border-purple-500"
+        required={required}
+        aria-required={required}
+        min={min}
+        max={max}
+        step={step}
+        className="w-full rounded-lg border-2 border-stone-200 bg-white px-4 py-3 text-stone-900 shadow-sm transition-all duration-200 placeholder:text-stone-400 focus:border-orange-500 focus:shadow-md focus:ring-2 focus:ring-orange-500/20 focus:outline-none dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 dark:placeholder:text-stone-500 dark:focus:border-orange-500"
       />
       {helperText && (
-        <p className="mt-1.5 text-xs text-zinc-500 dark:text-zinc-400">{helperText}</p>
+        <p className="mt-1.5 text-xs text-stone-500 dark:text-stone-400">{helperText}</p>
       )}
     </div>
   );
@@ -71,15 +89,15 @@ export function FormCheckboxGroup({ label, options, selectedValues = [], onChang
           return (
             <label
               key={optionValue}
-              className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-zinc-200 bg-zinc-50 px-4 py-3 transition hover:border-purple-400 dark:border-zinc-700 dark:bg-zinc-900"
+              className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-stone-200 bg-stone-50 px-4 py-3 transition hover:border-orange-400 dark:border-stone-700 dark:bg-stone-900"
             >
               <input
                 type="checkbox"
                 checked={selectedValues.includes(optionValue)}
                 onChange={() => handleCheckboxChange(optionValue)}
-                className="h-4 w-4 rounded border-zinc-300 text-purple-600 focus:ring-purple-500"
+                className="h-4 w-4 rounded border-stone-300 text-orange-600 focus:ring-orange-500"
               />
-              <span className="text-sm text-zinc-900 dark:text-zinc-100">
+              <span className="text-sm text-stone-900 dark:text-stone-100">
                 {optionLabel}
               </span>
             </label>
@@ -101,15 +119,15 @@ export function FormRadioGroup({ label, options, selectedValue, onChange, requir
           return (
             <label
               key={optionValue}
-              className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-zinc-200 bg-zinc-50 px-4 py-3 transition hover:border-purple-400 dark:border-zinc-700 dark:bg-zinc-900"
+              className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-stone-200 bg-stone-50 px-4 py-3 transition hover:border-orange-400 dark:border-stone-700 dark:bg-stone-900"
             >
               <input
                 type="radio"
                 checked={selectedValue === optionValue}
                 onChange={() => onChange(optionValue)}
-                className="h-4 w-4 border-zinc-300 text-purple-600 focus:ring-purple-500"
+                className="h-4 w-4 border-stone-300 text-orange-600 focus:ring-orange-500"
               />
-              <span className="text-sm text-zinc-900 dark:text-zinc-100">
+              <span className="text-sm text-stone-900 dark:text-stone-100">
                 {optionLabel}
               </span>
             </label>

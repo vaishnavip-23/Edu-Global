@@ -1,5 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from backend.config import FRONTEND_URL
 from backend.routes import onboarding
 from backend.routes import universities
@@ -7,6 +9,9 @@ from backend.routes import ai_counsellor
 from backend.routes import todos
 from backend.routes import users
 from backend.database import Base, engine
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -17,10 +22,38 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# CORS middleware
+# Custom exception handler for validation errors
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    errors = exc.errors()
+    logger.error(f"Validation error on {request.method} {request.url.path}")
+    logger.error(f"Validation errors: {errors}")
+
+    # Log the request body for debugging
+    try:
+        body = await request.body()
+        logger.error(f"Request body: {body.decode('utf-8')[:500]}")
+    except:
+        pass
+
+    # Format errors to be JSON serializable
+    formatted_errors = []
+    for error in errors:
+        formatted_errors.append({
+            "loc": error.get("loc"),
+            "msg": error.get("msg"),
+            "type": error.get("type"),
+        })
+
+    return JSONResponse(
+        status_code=422,
+        content={"detail": formatted_errors}
+    )
+
+# CORS middleware - allow all origins in development
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL],
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -76,3 +109,8 @@ async def test_database():
             "database_connected": False,
             "error": str(e)
         }
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

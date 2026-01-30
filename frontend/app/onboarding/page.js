@@ -17,20 +17,52 @@ export default function OnboardingPage() {
       return;
     }
 
-    // If user is signed in, show form
+    // If user is signed in, check onboarding status
     if (isLoaded && isSignedIn && user) {
-      setCheckingStatus(false);
+      // Check if onboarding is already complete
+      const checkOnboarding = async () => {
+        try {
+          const apiUrl =
+            process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+          const response = await fetch(
+            `${apiUrl}/api/onboarding/status/${user.id}`,
+            {
+              headers: { "Content-Type": "application/json" },
+            },
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            if (data.onboarding_complete) {
+              // Already completed, redirect to dashboard
+              router.push("/dashboard");
+              return;
+            }
+          }
+        } catch (error) {
+          console.error("Error checking onboarding status:", error);
+        }
+
+        setCheckingStatus(false);
+      };
+
+      checkOnboarding();
     }
   }, [isLoaded, isSignedIn, user, router]);
 
   // Show loading state while Clerk is loading or checking status
   if (!isLoaded || checkingStatus) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-100 px-4 py-10 dark:from-black dark:to-zinc-900">
-        <div className="mx-auto max-w-2xl flex items-center justify-center min-h-[60vh]">
+      <main
+        className="flex h-[calc(100vh-4rem)] flex-col overflow-hidden bg-gradient-to-br from-stone-50 to-stone-100 px-4 dark:from-stone-950 dark:to-stone-900"
+        id="main-content"
+      >
+        <div className="flex min-h-0 flex-1 items-center justify-center">
           <div className="text-center">
-            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-purple-600 border-r-transparent"></div>
-            <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">Loading...</p>
+            <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-orange-600 border-r-transparent" />
+            <p className="mt-4 text-sm text-stone-600 dark:text-stone-400">
+              Loading...
+            </p>
           </div>
         </div>
       </main>
@@ -42,10 +74,13 @@ export default function OnboardingPage() {
     return null;
   }
 
-  // User is authenticated and hasn't completed onboarding, show form
+  // User is authenticated and hasn't completed onboarding — fixed height, no page scroll
   return (
-    <main className="min-h-screen bg-gradient-to-br from-zinc-50 to-zinc-100 px-4 py-10 dark:from-black dark:to-zinc-900">
-      <div className="mx-auto max-w-2xl">
+    <main
+      className="flex h-[calc(100vh-4rem)] flex-col overflow-hidden bg-gradient-to-br from-stone-50 to-stone-100 px-4 py-6 dark:from-stone-950 dark:to-stone-900 sm:py-8 animate-fade-in"
+      id="main-content"
+    >
+      <div className="mx-auto flex min-h-0 w-full max-w-2xl flex-1 flex-col">
         <OnboardingForm />
       </div>
     </main>
