@@ -1,9 +1,9 @@
 """User / me endpoint for current user and stage."""
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from backend.database import get_db
-from backend.models import User, Onboarding, Todo, Shortlist
-from backend.auth import get_current_user
+from database import get_db
+from models import User, Onboarding, Todo, Shortlist
+from auth import get_current_user
 import logging
 
 logger = logging.getLogger(__name__)

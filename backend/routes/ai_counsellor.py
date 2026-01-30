@@ -2,11 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
-from backend.database import get_db
-from backend.models import User, Onboarding, Shortlist, Todo, Application
-from backend.services.ai_counsellor_service import ai_counsellor_service
-from backend.services.university_service import university_service
-from backend.auth import get_current_user
+from database import get_db
+from models import User, Onboarding, Shortlist, Todo, Application
+from services.ai_counsellor_service import ai_counsellor_service
+from services.university_service import university_service
+from auth import get_current_user
 import logging
 
 logger = logging.getLogger(__name__)

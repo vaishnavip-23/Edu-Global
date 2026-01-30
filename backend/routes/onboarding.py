@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import SQLAlchemyError
-from backend.database import get_db
-from backend.models import User, Onboarding, Todo
-from backend.schemas import OnboardingRequest, OnboardingResponse
-from backend.auth import get_current_user
+from database import get_db
+from models import User, Onboarding, Todo
+from schemas import OnboardingRequest, OnboardingResponse
+from auth import get_current_user
 import logging
 
 # Set up logging

@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from typing import List, Optional
-from backend.database import get_db
-from backend.models import User, Onboarding, Shortlist, Todo
-from backend.services.university_service import university_service
-from backend.auth import get_current_user
+from database import get_db
+from models import User, Onboarding, Shortlist, Todo
+from services.university_service import university_service
+from auth import get_current_user
 import logging
 
 logger = logging.getLogger(__name__)

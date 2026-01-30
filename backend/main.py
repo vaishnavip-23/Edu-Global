@@ -2,13 +2,13 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-from backend.config import FRONTEND_URL
-from backend.routes import onboarding
-from backend.routes import universities
-from backend.routes import ai_counsellor
-from backend.routes import todos
-from backend.routes import users
-from backend.database import Base, engine
+from config import FRONTEND_URL
+from routes import onboarding
+from routes import universities
+from routes import ai_counsellor
+from routes import todos
+from routes import users
+from database import Base, engine
 import logging
 
 logger = logging.getLogger(__name__)
@@ -76,8 +76,8 @@ async def health_check():
 async def test_database():
     """Test database connection and tables"""
     from sqlalchemy import inspect
-    from backend.database import engine, SessionLocal
-    from backend.models import User, Onboarding
+    from database import engine, SessionLocal
+    from models import User, Onboarding
 
     try:
         # Test connection

@@ -9,7 +9,7 @@ import requests
 import json
 import logging
 from functools import lru_cache
-from backend.config import CLERK_SECRET_KEY
+from config import CLERK_SECRET_KEY
 
 logger = logging.getLogger(__name__)
 
@@ -171,9 +171,9 @@ def create_onboarding_dependency():
         Use this on protected endpoints that require onboarding completion.
 
         Usage in routes:
-            from backend.auth import get_current_user
-            from backend.database import get_db
-            from backend.models import User
+            from auth import get_current_user
+            from database import get_db
+            from models import User
 
             @router.get("/protected-endpoint")
             async def protected_endpoint(
