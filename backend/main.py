@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from sqlalchemy import text
 from config import FRONTEND_URL
 from routes import onboarding
 from routes import universities
@@ -88,7 +89,7 @@ async def test_database():
     try:
         # Test connection
         with engine.connect() as conn:
-            conn.execute("SELECT 1")
+            conn.execute(text("SELECT 1"))
 
         # Check if tables exist
         inspector = inspect(engine)

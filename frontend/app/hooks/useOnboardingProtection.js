@@ -6,6 +6,20 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@clerk/nextjs";
 
+function decodeJwtPayload(token) {
+  try {
+    if (!token) return {};
+    const parts = token.split(".");
+    if (parts.length < 2) return {};
+    const base64Url = parts[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = base64.padEnd(base64.length + ((4 - (base64.length % 4)) % 4), "=");
+    return JSON.parse(atob(padded));
+  } catch {
+    return {};
+  }
+}
+
 export function useOnboardingProtection() {
   const router = useRouter();
   const { getToken } = useAuth();
@@ -21,9 +35,19 @@ export function useOnboardingProtection() {
         const token = await getToken();
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-        // Get user ID from token claims
-        const decoded = token ? JSON.parse(atob(token.split('.')[1])) : {};
+        // Get user ID from token claims (JWT uses base64url encoding)
+        const decoded = decodeJwtPayload(token);
         const clerkUserId = decoded.sub;
+
+        if (!clerkUserId) {
+          router.push("/onboarding");
+          setOnboardingStatus({
+            loading: false,
+            complete: false,
+            showModal: false,
+          });
+          return;
+        }
 
         const response = await fetch(`${apiUrl}/api/onboarding/status/${clerkUserId}`, {
           headers: {
