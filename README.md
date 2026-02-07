@@ -116,5 +116,5 @@ MIT License. See `LICENSE` for details.
 [Watch the full demo video](https://app.weet.co/play/fd457ab1/ai-counsellor-hackathon)
 
 ## Hackathon Result
-Recognized with a **Certificate** in the **AI Counsellor Hackathon**.
+Recognized with a **Certificate** in the **AI Counsellor Hackathon** conducted by Humanity Founders.
 
